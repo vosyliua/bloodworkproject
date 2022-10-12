@@ -10,7 +10,7 @@ export async function setup(node) {
 		document.querySelector('header p').innerText = 'Settings Page'
         document.querySelector('header p').setAttribute('id', 'settingsHeader')
         node.querySelector('form').addEventListener('submit', await saveSettings)
-		customiseNavbar(['home', 'settings', 'logout'])
+		customiseNavbar(['home', 'settings', 'stats','logout'])
 	} catch(err) {
 		console.error(err)
 	}

@@ -65,12 +65,35 @@ li:hover {
     border-radius: 2em;
 }
   
-  
-
-#searchButton{
+.detailsClass{
+    padding:9px;
     font-family: 'Rubik', sans-serif;
     background: #CCD1D9;
-    margin: auto;
+    font-size: large;
+    box-shadow: 0px 0px 12px -2px rgba(0,0,0,0.5);
+    line-height: 1.25;
+    background: #FC6E51;
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    transition: background-color .6s ease;
+    overflow: hidden;
+}
+
+.detailsClass:hover{
+    background-color:#002ead;
+      transition: 0.1s;
+}
+
+#searchButton{
+    position:absolute;
+    top:30%;
+    left:57%;
+    padding:9px;
+    font-family: 'Rubik', sans-serif;
+    background: #CCD1D9;
     display: block;
     font-size: large;
     box-shadow: 0px 0px 12px -2px rgba(0,0,0,0.5);
@@ -91,16 +114,16 @@ li:hover {
 }
 
 #searchbar{
-    margin: auto;
+    position:absolute;
+    top:30%;
+    left:40%;
     display: block;
-    width: 50%;
+    width: 20%;
     font-size: large;
     padding:8px;
     
 }
 
-form[name="settings1"]{
-}
 
 
 
@@ -173,12 +196,116 @@ form[name="settings1"]{
     background-color:blanchedalmond;
 }
 
-#informationDiv{
+
+#informationDivg{
     margin: auto;
-    width: fit-content; 
-    height: fit-content;
-    border: 3px solid #333333;
+    width: 70%;
+    border: 3px solid #24c842;
+    background-color:blanchedalmond;
+    border-radius: 2% 6% 5% 4% / 1% 1% 2% 4%;
 }
+
+#informationDivb{
+    margin: auto;
+    width: 70%;
+    border: 3px solid #bc2020;
+    background-color:blanchedalmond;
+    border-radius: 2% 6% 5% 4% / 1% 1% 2% 4%;
+}
+#informationDiv1g{
+    margin: auto;
+    width: 70%;
+    border: 3px solid #24c842;
+    background-color:blanchedalmond;
+    border-radius: 2% 6% 5% 4% / 1% 1% 2% 4%;
+}
+#informationDiv1b{
+    margin: auto;
+    width: 70%;
+    border: 3px solid #bc2020;
+    background-color:blanchedalmond;
+    border-radius: 2% 6% 5% 4% / 1% 1% 2% 4%;
+}
+
+#informationDiv2g{
+    margin: auto;
+    width: 70%;
+    border: 3px solid #24c842;
+    background-color:blanchedalmond;
+    border-radius: 2% 6% 5% 4% / 1% 1% 2% 4%;
+}
+
+#informationDiv2b{
+    margin: auto;
+    width: 70%;
+    border: 3px solid #bc2020;
+    background-color:blanchedalmond;
+    border-radius: 2% 6% 5% 4% / 1% 1% 2% 4%;
+}
+#informationDiv3g{
+    
+    margin: auto;
+    width: 70%;
+    border: 3px solid #24c842;
+    background-color:blanchedalmond;
+    border-radius: 2% 6% 5% 4% / 1% 1% 2% 4%;
+}
+
+#informationDiv3b{
+    
+    margin: auto;
+    width: 70%;
+    border: 3px solid #bc2020;
+    background-color:blanchedalmond;
+    border-radius: 2% 6% 5% 4% / 1% 1% 2% 4%;
+}
+
+#informationDiv4g{
+    
+    margin: auto;
+    width: 70%;
+    border: 3px solid #24c842;
+    background-color:blanchedalmond;
+    border-radius: 2% 6% 5% 4% / 1% 1% 2% 4%;
+}
+#labelWrapper{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 6px;
+    grid-row-gap: 6px;
+    place-items: center;
+
+}
+#wrapper{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    grid-column-gap: 6px;
+    grid-row-gap: 6px;
+    align-items: center;
+    justify-content: center;
+    place-items: center;
+    
+
+}
+
+#imageItem{
+    width: 200px;
+    height:200px;
+}
+
+
+#informationDiv4b{
+    
+    margin: auto;
+    width: 70%;
+    border: 3px solid #bc2020;
+    background-color:blanchedalmond;
+    border-radius: 2% 6% 5% 4% / 1% 1% 2% 4%;
+}
+
+
 
 #whiteSpace{
     padding-bottom: 20px;

@@ -4,7 +4,8 @@
 import { customiseNavbar, showMessage } from '../util.js'
 
 export async function setup(node) {
-	console.log('HOME: setup')
+	console.log("update")
+	console.log('HOME: setup1')
 	try {
 		console.log(node)
 		var x = document.createElement("INPUT");
@@ -20,13 +21,13 @@ export async function setup(node) {
 		node.appendChild(button)
 		document.querySelector('header p').innerText = 'Welcome ' + localStorage.getItem('username') + "!"
 		document.querySelector('header p').setAttribute('id', 'settingsHeader')
-		customiseNavbar(['home', 'settings', 'logout']) // navbar if logged in
+		customiseNavbar(['home', 'settings', 'logout','stats', 'vitamins']) // navbar if logged in
 		const token = localStorage.getItem('authorization')
 		node.getElementById('searchButton').addEventListener('click', await searchFood)
 		console.log(token)
 		if(token === null) customiseNavbar(['home', 'login','register']) //navbar if logged out
 		// add content to the page
-		await addContent(node)
+
 	} catch(err) {
 		console.error(err)
 	}
@@ -50,7 +51,8 @@ async function searchFood(node){
 				console.log(data.hints[0].food.label)
 			}
 			else{
-				
+				console.log("poop")
 			}
 		
 }
+

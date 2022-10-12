@@ -1,6 +1,6 @@
 import { db } from 'db'
 
-export async function addSettings(data) {
+export async function addSettings(username) {
 	let sql = `SELECT id FROM accounts WHERE user = "${data.username}"`
 	let result = await db.query(sql)
     data.userid = result[0].id
@@ -9,4 +9,11 @@ export async function addSettings(data) {
 	console.log(sql)
 	await db.query(sql)
 	return true
+}
+
+export async function getSettings(username){
+	let sql = `SELECT * FROM settings WHERE username = "${username}" ORDER BY ID DESC LIMIT 1`
+	let result = await db.query(sql)
+	return result
+	console.log(result)
 }

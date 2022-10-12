@@ -5,7 +5,7 @@ import { Router } from 'oak'
 
 import { extractCredentials, dataURLtoFile } from 'util'
 import { login, register } from 'accounts'
-import { addSettings } from '///home/codio/workspace/api/modules/settings.js'
+import { addSettings, getSettings } from '///home/codio/workspace/api/modules/settings.js'
 
 const router = new Router()
 
@@ -57,6 +57,22 @@ router.post('/api/settings', async context => {
 	await addSettings(data)
 	context.response.status = 201
 	context.response.body = JSON.stringify({ status: 'success', msg: 'settings saved' })
+})
+
+router.get('/api/settings/:username', async context => {
+	try {
+		const username = context.params.username
+		console.log(username)
+		const settings = await getSettings(username);
+		context.response.body = {status:'success', data :settings}
+	} catch(err) {
+		err.data = {
+			code: 401,
+			title: '401 Unauthorized',
+			detail: err.message
+		}
+		throw err
+	}
 })
 
 router.post('/api/files', async context => {
