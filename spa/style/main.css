@@ -1,0 +1,153 @@
+
+/* this is where we set up our media queries */
+
+@import url(./material.css) (pointer: coarse);
+
+@import url(./custom.css) (pointer: fine);
+
+
+ul {
+        
+    
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+	padding: 10px;
+	margin: 0;
+	list-style-type: none;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: center;
+	/* height: 3em; */
+	justify-content: flex-start;
+}
+
+li {
+	padding: 20px;
+	margin: 0;
+	display: inline-block;
+	flex-basis: 8em;
+	/* border: 1px solid grey; */
+	height: 2em;
+	text-align: center;
+	text-transform: uppercase;
+	padding-top: 1em;
+    padding-bottom: 0.3em;
+	font-size: 0.8em;
+    background-color: whitesmoke;
+    border-radius: 2em;
+}
+
+body {
+	overflow-x: hidden;
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f094e3), to(#91ddef));
+    background-image: -webkit-linear-gradient(to top, #f074ec 0%, #b2eaf0 100%);
+    background-image: -moz-linear-gradient(to top, #f094ea 0%, #b2eaf0 100%);
+    background-image: -o-linear-gradient(to top, #f0a4eb 0%, #b2eaf0 100%);
+    background-image: linear-gradient(to top, #eda8eb 0%, #b2eaf0 100%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+	width: 100%;
+
+	padding: 1em;
+	padding-bottom: 0.5em;
+
+
+}
+
+li:hover a {
+	color: black;
+
+}
+
+li:hover {
+	background-color: white;
+    border-radius: 2em;
+}
+
+#searchButton{
+    margin: auto;
+    display: block;
+    font-size: large;
+}
+
+#searchbar{
+    margin: auto;
+    display: block;
+    width: 50%;
+    font-size: large;
+}
+
+form[name="settings1"]{
+}
+
+
+
+#second{
+    position:absolute;
+    left: 55%;
+    bottom:27%;
+    background-color:blanchedalmond;
+        border: 3px solid #333333;
+    border-radius: 2% 6% 5% 4% / 1% 1% 2% 4%;
+        padding: 20px;
+}
+
+#agediv{
+    display: grid;
+}
+
+#first{
+    position:absolute;
+    left: 35%;
+    bottom:10%;
+    border: 3px solid #333333;
+    border-radius: 2% 6% 5% 4% / 1% 1% 2% 4%;
+    padding: 20px;
+    background-color:blanchedalmond;
+}
+
+#background{
+     position:absolute;
+    left: 50%;
+    bottom:10%;
+
+}
+#settingsButton {
+
+  font-family: 'Rubik', sans-serif;
+  background: #CCD1D9;
+  padding: 16px 42px;
+  box-shadow: 0px 0px 12px -2px rgba(0,0,0,0.5);
+  line-height: 1.25;
+  background: #FC6E51;
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  transition: background-color .6s ease;
+  overflow: hidden;
+
+}
+#settingsButton:hover{
+    background-color:#002ead;
+      transition: 0.1s;
+}
+
+
+#settingsHeader{
+    text-align: center;
+    font-size: 40px ;
+}
+
+#explanation{
+    position:absolute;
+    font-size: 25px;
+    background-color: whitesmoke;
+    bottom:35%;
+    border: 3px solid #333333;
+    border-radius: 2% 6% 5% 4% / 1% 1% 2% 4%;
+    padding: 20px;
+    background-color:blanchedalmond;
+}
