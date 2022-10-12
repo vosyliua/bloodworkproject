@@ -12,6 +12,8 @@ export async function setup(node) {
 		x.setAttribute("type", "text");
 		x.setAttribute("id","searchbar")
 		node.appendChild(x)
+		var white = document.createElement('p')
+		node.appendChild(white)
 		var button = document.createElement('button')
 		button.setAttribute("id","searchButton")
 		button.innerHTML = "Search"
