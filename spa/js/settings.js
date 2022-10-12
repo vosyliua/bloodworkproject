@@ -9,14 +9,14 @@ export async function setup(node) {
 		console.log(node)
 		document.querySelector('header p').innerText = 'Settings Page'
         document.querySelector('header p').setAttribute('id', 'settingsHeader')
-        node.querySelector('form').addEventListener('submit', saveSettings)
+        node.querySelector('form').addEventListener('submit', await saveSettings)
 		customiseNavbar(['home', 'settings', 'logout'])
 	} catch(err) {
 		console.error(err)
 	}
 }
 
-function saveSettings(node){
+async function saveSettings(node){
     event.preventDefault()
     const variables = []
     var age = document.getElementById("age").value
@@ -78,7 +78,19 @@ function saveSettings(node){
             vitk: vitk,
             ldl: ldl,
             hdl:hdl
-        }            
+        }
+        const url = '/api/settings'
+	    const options = {
+		method: 'POST',
+		headers: {
+            'Authorization': localStorage.getItem('authorization'),
+			'Content-Type': 'application/vnd.api+json',
+			'Accept': 'application/vnd.api+json'
+		},
+		body: JSON.stringify(data)
+	}
+	const response = await fetch(url, options)
+	const json = await response.json()            
         console.log(data)
     }
 

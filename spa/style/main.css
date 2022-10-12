@@ -151,3 +151,8 @@ form[name="settings1"]{
     padding: 20px;
     background-color:blanchedalmond;
 }
+
+#informationDiv{
+    display: flex;
+    justify-content: center;
+}

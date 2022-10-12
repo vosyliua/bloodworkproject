@@ -5,6 +5,7 @@ import { Router } from 'oak'
 
 import { extractCredentials, dataURLtoFile } from 'util'
 import { login, register } from 'accounts'
+import { addSettings } from '///home/codio/workspace/api/modules/settings.js'
 
 const router = new Router()
 

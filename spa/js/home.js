@@ -16,7 +16,8 @@ export async function setup(node) {
 		button.setAttribute("id","searchButton")
 		button.innerHTML = "Search"
 		node.appendChild(button)
-		document.querySelector('header p').innerText = 'Home'
+		document.querySelector('header p').innerText = 'Welcome ' + localStorage.getItem('username') + "!"
+		document.querySelector('header p').setAttribute('id', 'settingsHeader')
 		customiseNavbar(['home', 'settings', 'logout']) // navbar if logged in
 		const token = localStorage.getItem('authorization')
 		node.getElementById('searchButton').addEventListener('click', await searchFood)
@@ -29,21 +30,6 @@ export async function setup(node) {
 	}
 }
 
-// this example loads the data from a JSON file stored in the uploads directory
-async function addContent(node) {
-	// show "LOADING" message
-	const response = await fetch('/uploads/quotes.json')
-	const quotes = await response.json()
-	const template = document.querySelector('template#quote')
-	for(const quote of quotes.data) {
-		const fragment = template.content.cloneNode(true)
-		fragment.querySelector('h2').innerText = quote.author
-		fragment.querySelector('p').innerText = quote.quote
-		node.appendChild(fragment)
-	}
-	// hide "LOADING" message
-	document.querySelector('aside').classList.add('hidden')
-}
 
 async function searchFood(node){
 	const value = document.getElementById('searchbar').value
