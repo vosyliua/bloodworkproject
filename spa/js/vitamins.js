@@ -4,6 +4,10 @@ import { createToken, customiseNavbar, loadPage, showMessage } from '../util.js'
 export async function setup(node) {
 	try {
         await setPage(node)
+        var detailsid = localStorage.getItem('details')
+        if(detailsid != null){
+            localStorage.setItem('details', 0)
+        }
 		console.log('LOGIN: setup')
 		console.log(node)
 		document.querySelector('header p').innerText = 'OVERWIEW OF YOUR BLOOD RESULTS'
@@ -141,7 +145,7 @@ async function setPage (node){
     }else{
         results.push("V")
     }
-    if(vitArray[12] <= 40){
+    if(vitArray[12] <= 400){
         results.push("X")
     }else{
         results.push("V")
@@ -161,7 +165,7 @@ async function setPage (node){
         var recommendedVitamin = document.createElement('p')
         var detailsButton = document.createElement('button')
         detailsButton.innerText = "Details"
-        detailsButton.setAttribute('id', num)
+        detailsButton.setAttribute('id', num+1)
         detailsButton.setAttribute('class', "detailsClass")
         recommendedVitamin.innerText = recommended[num] + measurments[num]
         vitamin.innerText = vitaminArray[num]
@@ -179,15 +183,19 @@ async function setPage (node){
         x2.appendChild(userVitamin)
         x3.appendChild(recommendedVitamin)
         if(results[num] == "X"){
-            x4.innerText = "\u2705" 
-        }else{
             x4.innerText = "\u274C"
+            x5.appendChild(detailsButton)
+        }else{
+            x4.innerText = "\u2705" 
         }
         x1.style.fontSize = "30px";
         x2.style.fontSize = "30px";
         x3.style.fontSize = "30px";
         x4.style.fontSize = "50px";
-        x5.appendChild(detailsButton)
+        detailsButton.addEventListener('click', ()=>{
+            localStorage.setItem('details', detailsButton.id)
+            loadDetails()
+        })
         wrapper.appendChild(x)
         wrapper.appendChild(x1)
         wrapper.appendChild(x2)
@@ -200,4 +208,8 @@ async function setPage (node){
     
     node.appendChild(wrapper)
     console.log(wrapper)
+}
+
+function loadDetails(){
+    loadPage('details')
 }
