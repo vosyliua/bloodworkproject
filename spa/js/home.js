@@ -7,6 +7,7 @@ import { customiseNavbar, showMessage } from '../util.js'
 
 export async function setup(node) {
 	try {
+		await getDailyCal(node)
 		var x = document.createElement("INPUT");
 		var v = document.createElement("INPUT");
 		v.setAttribute('type', "text")
@@ -155,7 +156,58 @@ function loadFood(information){
 
 }
 
+async function getDailyCal(node){
+	const username = localStorage.getItem('username')
+	const options = {
+		method: 'GET',
+		headers: {
+			'Authorization' : localStorage.getItem('authorization'),
+			'Content-Type': 'application/vnd.api+json'
+		}
+	}
+	const response = await fetch(`/api/settings/${username}`, options)
+	const userData = await response.json()
+	console.log(userData)
+	if(userData.data[0].gender == "male"){
+		var age = parseInt(userData.data[0].age)
+		var weight = parseInt(userData.data[0].weight)
+		var height = parseInt(userData.data[0].height)
+		const maleCalories = Math.round(66.5 + (13.75 * weight)+(5.003 * height)-(4.676 * age))
+		console.log(maleCalories)
+		var calLabel = document.createElement('h2')
+		var callabel1 = document.createElement('h2')
+		calLabel.innerText = "Calories You've eaten"
+		callabel1.innerText = "Out Of: "
+		var calAddUp = document.createElement('h2')
+		calAddUp.setAttribute('id','calAddUp')
+		calAddUp.innerText = 0
+		var cals = document.createElement('h2')
+		cals.innerText = maleCalories
+		var caldiv = document.createElement('div')
+		caldiv.appendChild(calLabel)
+		caldiv.appendChild(calAddUp)
+		caldiv.appendChild(callabel1)
+		caldiv.appendChild(cals)
+		caldiv.setAttribute('id','dailyCalories')
+		document.body.appendChild(caldiv)
+	}
+	if(userData.data[0].gender == "female"){
+		var age = parseInt(userData.data[0].age)
+		var weight = parseInt(userData.data[0].weight)
+		var height = parseInt(userData.data[0].height)
+		const femaleCalories = Math.round(655.1+ (9.563 * weight)+(1.850 * height)-(4.676 * age))
+		var cals = document.createElement('h2')
+		var cals1 = document.createElement('h2')
+		cals.innerText = femaleCalories
+		var caldiv = document.createElement('div')
+		caldiv.appendChild(cals)
+		caldiv.setAttribute('id','dailyCalories')
+		document.body.appendChild(caldiv)
+	}
+}
+
 function addFood(information){
+
 	var nameDiv = document.createElement('div')
 	var calDiv = document.createElement('div')
 	var protDiv = document.createElement('div')
@@ -166,15 +218,20 @@ function addFood(information){
 	var protEle = document.createElement('p')
 	var carbEle = document.createElement('p')
 	var fatEle = document.createElement('p')
+	var num = information.calories
+	var base = document.getElementById('calAddUp')
+	var num1 = parseInt(base.innerText)
+	var num2 = num1+num
+	base.innerText = num2
 	var removeButton = document.createElement('button')
 	removeButton.innerText = "\u274C"
 	removeButton.setAttribute('class', 'saveFood')
 	nameEle.innerText = information.name
 	nameEle.style.fontSize = "25px"
 	calEle.innerText = information.calories
-	protEle.innerText = information.protein 
-	carbEle.innerText = information.carbs 
-	fatEle.innerText = information.fat 
+	protEle.innerText = information.protein +"g"
+	carbEle.innerText = information.carbs+"g"
+	fatEle.innerText = information.fat +"g"
 	nameDiv.appendChild(nameEle)
 	calDiv.appendChild(calEle)
 	protDiv.appendChild(protEle)
@@ -188,6 +245,16 @@ function addFood(information){
 	wrapper.appendChild(fatDiv)
 	wrapper.appendChild(removeButton)
 	document.body.appendChild(wrapper)
-
+	removeButton.addEventListener('click', function(){
+		var removeAmount = parseInt(document.getElementById('calAddUp').innerText)
+		var correctAmount  = removeAmount - information.calories
+		document.getElementById('calAddUp').innerText = correctAmount
+		nameDiv.remove()
+		calDiv.remove()
+		protDiv.remove()
+		carbDiv.remove()
+		fatDiv.remove()
+		removeButton.remove()
+	})
 }
 

@@ -1,7 +1,12 @@
 import { createToken, customiseNavbar, loadPage, showMessage } from '../util.js'
 
-export async function setup(node) {
-	var remove = document.getElementById('wrapperFoods')
+export async function setup(node){
+    var remove3 = document.getElementById('dailyCalories')
+    if(remove3 !=null ){
+		remove3.remove()
+	}
+    
+    var remove = document.getElementById('wrapperFoods')
     if(remove !=null ){
 		remove.remove()
 	}
