@@ -16,6 +16,7 @@ export async function setup(node) {
 		remove1.remove()
 	}
 	try {
+        await setBmi(node)
         await setPage(node)
         var detailsid = localStorage.getItem('details')
         if(detailsid != null){
@@ -29,6 +30,28 @@ export async function setup(node) {
 	} catch(err) {
 		console.error(err)
 	}
+}
+
+async function setBmi(node){
+    const username = localStorage.getItem('username')
+	const options = {
+		method: 'GET',
+		headers: {
+			'Authorization' : localStorage.getItem('authorization'),
+			'Content-Type': 'application/vnd.api+json'
+		}
+	}
+	const response = await fetch(`/api/settings/${username}`, options)
+    const data = await response.json()
+    const extracted = data.data[0]
+    console.log(extracted)
+    const height = extracted.height/100
+    console.log(height*height+"height squared")
+    console.log(height+"normal height")
+    console.log(extracted.weight+"weight")
+    const bmi = extracted.weight * (height*height)
+    console.log(bmi)
+
 }
 
 
