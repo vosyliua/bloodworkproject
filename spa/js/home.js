@@ -8,54 +8,13 @@ import { customiseNavbar, showMessage } from '../util.js'
 export async function setup(node) {
 	try {
 		await getDailyCal(node)
-		var x = document.createElement("INPUT");
-		var v = document.createElement("INPUT");
-		v.setAttribute('type', "text")
-		v.setAttribute('id', "searchMeasure")
-		x.setAttribute("type", "text");
-		x.setAttribute("id","searchbar")
-		x.setAttribute('placeholder', "Enter Food")
-		v.setAttribute('placeholder', "Grams")
-		node.appendChild(v)
-		node.appendChild(x)
-		var white = document.createElement('p')
-		node.appendChild(white)
-		var button1 = document.createElement('button')
-		var foodLabels = document.createElement('div')
-		foodLabels.setAttribute('id', 'foodLabels')
-		var foodName = document.createElement('p')
-		var calAmount = document.createElement('p')
-		var protAmount = document.createElement('p')
-		var carbAmount = document.createElement('p')
-		var fatAmount = document.createElement('p')
-		foodName.setAttribute('id', 'foodName')
-		protAmount.setAttribute('id','protAmount')
-		carbAmount.setAttribute('id','carbAmount')
-		calAmount.setAttribute('id','calAmount')
-		fatAmount.setAttribute('id','fatAmount')
-		button1.setAttribute("id","searchButton")
-		foodName.innerText = "Food Name"
-		protAmount.innerText = "Protein Amount"
-		carbAmount.innerText = "Carbohydrate Amount"
-		fatAmount. innerText = "Fat Amount"
-		calAmount.innerText = "Calorie Amount"
-		foodLabels.appendChild(foodName)
-		foodLabels.appendChild(calAmount)
-		foodLabels.appendChild(protAmount)
-		foodLabels.appendChild(carbAmount)
-		foodLabels.appendChild(fatAmount)
-		node.appendChild(button1)
-		node.appendChild(foodLabels)
-		button1.innerHTML = "Search"
-		var c = document.createElement('p')
-		c.setAttribute('id',"searchLabel")
-		c.innerText = "Enter what you've eaten"
-		node.appendChild(c)
+		await searchBar(node)
+		await excersiseBar(node)
 		document.querySelector('header p').innerText = 'Welcome ' + localStorage.getItem('username') + "!"
 		document.querySelector('header p').setAttribute('id', 'settingsHeader')
 		customiseNavbar(['home', 'settings', 'logout','stats', 'vitamins']) // navbar if logged in
 		const token = localStorage.getItem('authorization')
-		button1.addEventListener('click', await searchFood)
+
 		console.log(token)
 		if(token === null) customiseNavbar(['home', 'login','register']) //navbar if logged out
 		// add content to the page
@@ -107,6 +66,165 @@ async function searchFood(event){
 				loadFood(information)
 			}
 }
+
+async function searchBar(node){
+	var x = document.createElement("INPUT");
+		var v = document.createElement("INPUT");
+		v.setAttribute('type', "text")
+		v.setAttribute('id', "searchMeasure")
+		x.setAttribute("type", "text");
+		x.setAttribute("id","searchbar")
+		x.setAttribute('placeholder', "Enter Food")
+		v.setAttribute('placeholder', "Grams")
+		node.appendChild(v)
+		node.appendChild(x)
+		var white = document.createElement('p')
+		node.appendChild(white)
+		var button1 = document.createElement('button')
+		var foodLabels = document.createElement('div')
+		foodLabels.setAttribute('id', 'foodLabels')
+		var foodName = document.createElement('p')
+		var calAmount = document.createElement('p')
+		var protAmount = document.createElement('p')
+		var carbAmount = document.createElement('p')
+		var fatAmount = document.createElement('p')
+		foodName.setAttribute('id', 'foodName')
+		protAmount.setAttribute('id','protAmount')
+		carbAmount.setAttribute('id','carbAmount')
+		calAmount.setAttribute('id','calAmount')
+		fatAmount.setAttribute('id','fatAmount')
+		button1.setAttribute("id","searchButton")
+		foodName.innerText = "Description"
+		protAmount.innerText = "Protein Amount"
+		carbAmount.innerText = "Carbohydrate Amount"
+		fatAmount. innerText = "Fat Amount"
+		calAmount.innerText = "Calorie Amount"
+		foodLabels.appendChild(foodName)
+		foodLabels.appendChild(calAmount)
+		foodLabels.appendChild(protAmount)
+		foodLabels.appendChild(carbAmount)
+		foodLabels.appendChild(fatAmount)
+		node.appendChild(button1)
+		node.appendChild(foodLabels)
+		button1.innerHTML = "Search"
+		var c = document.createElement('h2')
+		c.setAttribute('id',"searchLabel")
+		c.innerText = "Enter what you've eaten"
+		node.appendChild(c)
+		button1.addEventListener('click', await searchFood)
+}
+ 
+async function excersiseBar(node){
+	const excersises = ["Walking","Swimming","Running","Weight Lifting", "Cycling"]
+	const intensities = ["Low Intensity", "Medium Intensity", "Vigurous Intensity"]
+	const intensityDic = {
+		low: 1,
+		medium: 1.2,
+		high: 1.5
+	}
+	const excersiseBtn = node.getElementById('saveExcersise')
+	excersiseBtn.addEventListener('click',function(){
+		const excersise = document.getElementById('excersise')
+		const excersiseValue = excersise.options[excersise.selectedIndex].text
+		const intensity = document.getElementById('effort')
+		const intensityValue = intensity.options[intensity.selectedIndex].text
+		const duration = document.getElementById('duration').value
+		const running = 653
+		const swimming = 600
+		const walking = 350
+		const weights =  333
+		const cycling = 666
+		console.log(excersiseValue + " " + intensityValue + " " + duration)
+		if(excersiseValue == "Walking"){
+			if(intensityValue == "Low Intensity"){
+				var finalCals = (duration / 100) *  walking
+			}
+			if(intensityValue == "Medium Intensity"){
+				var finalCals = (duration / 100) *  (walking * 1.2)
+			}
+			if(intensityValue == "Vigurous Intensity"){
+				var finalCals = (duration / 100) * (walking * 1.5)
+			}
+		}
+		if(excersiseValue == "Swimming"){
+			if(intensityValue == "Low Intensity"){
+				var finalCals = (duration / 100) *  swimming
+			}
+			if(intensityValue == "Medium Intensity"){
+				var finalCals = (duration / 100) *  (swimming * 1.2)
+			}
+			if(intensityValue == "Vigurous Intensity"){
+				var finalCals = (duration / 100) * (swimming * 1.5)
+			}
+		}
+		if(excersiseValue == "Running"){
+			if(intensityValue == "Low Intensity"){
+				var finalCals = (duration / 100) *  running
+			}
+			if(intensityValue == "Medium Intensity"){
+				var finalCals = (duration / 100) *  (running * 1.2)
+			}
+			if(intensityValue == "Vigurous Intensity"){
+				var finalCals = (duration / 100) * (running * 1.5)
+			}
+		}
+		if(excersiseValue == "Cycling"){
+			if(intensityValue == "Low Intensity"){
+				var finalCals =(duration / 100) *  cycling
+			}
+			if(intensityValue == "Medium Intensity"){
+				var finalCals = (duration / 100) *  (cycling * 1.2)
+			}
+			if(intensityValue == "Vigurous Intensity"){
+				var finalCals = (duration / 100) * (cycling * 1.5)
+			}
+		}
+		if(excersiseValue == "Weight Lifting"){
+			if(intensityValue == "Low Intensity"){
+				var finalCals = (duration / 100) *  weights
+			}
+			if(intensityValue == "Medium Intensity"){
+				var finalCals = (duration / 100) *  (weights * 1.2)
+			}
+			if(intensityValue == "Vigurous Intensity"){
+				var finalCals = (duration / 100) * (weights * 1.5)
+			}
+		}
+		var wrapper = document.getElementById('saveWrapper')
+		var excersiseName = document.createElement('p')
+		var excersiseCals = document.createElement('p')
+		var excersiseName1 = document.createElement('p')
+		var excersiseName2 = document.createElement('p')
+		var excersiseName3 = document.createElement('p')
+		excersiseName.innerText = excersiseValue
+		excersiseName.style.fontSize = "25px"
+		excersiseCals.innerText = "-" + Math.round(finalCals)
+		wrapper.appendChild(excersiseName)
+		wrapper.appendChild(excersiseCals)
+		wrapper.appendChild(excersiseName1)
+		wrapper.appendChild(excersiseName2)
+		wrapper.appendChild(excersiseName3)
+		var removeButton = document.createElement('button')
+		removeButton.innerText = "\u274C"
+		removeButton.setAttribute('class', 'saveFood')
+		wrapper.appendChild(removeButton)
+		var personCalories = document.getElementById('personCalories')
+		var newCalories = parseInt(personCalories.innerText) + Math.round(finalCals)
+		personCalories.innerText = newCalories
+		removeButton.addEventListener('click', function(){
+			var removedCalories = parseInt(personCalories.innerText) - Math.abs(Math.round(finalCals))
+			personCalories.innerText = Math.round(removedCalories)
+			excersiseCals.remove()
+			excersiseName.remove()
+			excersiseName1.remove()
+			excersiseName2.remove()
+			excersiseName3.remove()
+			removeButton.remove()
+		})
+
+	})
+}
+
 
 function loadFood(information){
 	var wrapper = document.createElement('div')
@@ -182,6 +300,7 @@ async function getDailyCal(node){
 		calAddUp.setAttribute('id','calAddUp')
 		calAddUp.innerText = 0
 		var cals = document.createElement('h2')
+		cals.setAttribute('id', "personCalories")
 		cals.innerText = maleCalories
 		var caldiv = document.createElement('div')
 		caldiv.appendChild(calLabel)
@@ -198,6 +317,7 @@ async function getDailyCal(node){
 		const femaleCalories = Math.round(655.1+ (9.563 * weight)+(1.850 * height)-(4.676 * age))
 		var cals = document.createElement('h2')
 		var cals1 = document.createElement('h2')
+		cals.setAttribute('id', "personCalories")
 		cals.innerText = femaleCalories
 		var caldiv = document.createElement('div')
 		caldiv.appendChild(cals)
@@ -207,7 +327,7 @@ async function getDailyCal(node){
 }
 
 function addFood(information){
-
+	document.getElementById('wrapperFoods').remove()
 	var nameDiv = document.createElement('div')
 	var calDiv = document.createElement('div')
 	var protDiv = document.createElement('div')
