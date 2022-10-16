@@ -41,8 +41,9 @@ async function register() {
 	const response = await fetch(url, options)
 	const json = await response.json()
 	console.log(json)
-	if(json.status == 201){
-		showMessage('new account registered')
+	console.log
+	if(json.status == "success"){
+		alert("new account created")
 		loadPage('login')
 	}else{
 		alert('Account already exists')

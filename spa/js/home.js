@@ -12,7 +12,7 @@ export async function setup(node) {
 		await excersiseBar(node)
 		document.querySelector('header p').innerText = 'Welcome ' + localStorage.getItem('username') + "!"
 		document.querySelector('header p').setAttribute('id', 'settingsHeader')
-		customiseNavbar(['settings', 'logout','stats', 'vitamins']) // navbar if logged in
+		customiseNavbar(['settings', 'logout','stats', 'vitamins','backlog']) // navbar if logged in
 		const token = localStorage.getItem('authorization')
 
 		console.log(token)
@@ -88,6 +88,8 @@ async function searchBar(node){
 		var protAmount = document.createElement('p')
 		var carbAmount = document.createElement('p')
 		var fatAmount = document.createElement('p')
+		var saveBacklog = document.createElement('button')
+		saveBacklog.innerText = "Save"
 		foodName.setAttribute('id', 'foodName')
 		protAmount.setAttribute('id','protAmount')
 		carbAmount.setAttribute('id','carbAmount')
@@ -99,11 +101,14 @@ async function searchBar(node){
 		carbAmount.innerText = "Carbohydrate Amount"
 		fatAmount. innerText = "Fat Amount"
 		calAmount.innerText = "Calorie Amount"
+		saveBacklog.setAttribute('id','saveExcersise')
 		foodLabels.appendChild(foodName)
 		foodLabels.appendChild(calAmount)
 		foodLabels.appendChild(protAmount)
 		foodLabels.appendChild(carbAmount)
 		foodLabels.appendChild(fatAmount)
+		foodLabels.appendChild(saveBacklog)
+
 		node.appendChild(button1)
 		node.appendChild(foodLabels)
 		button1.innerHTML = "Search"
@@ -112,6 +117,35 @@ async function searchBar(node){
 		c.innerText = "Enter what you've eaten"
 		node.appendChild(c)
 		button1.addEventListener('click', await searchFood)
+		saveBacklog.addEventListener('click', await saveToBacklog)
+}
+
+	    
+
+
+async function saveToBacklog(){
+	document.getElementById('saveWrapper').textContent=''
+	var currentdate = new Date();
+	var datetime =   currentdate.getDate() + "/"+ (currentdate.getMonth()+1)  + "/"  + currentdate.getFullYear() 
+	var caloriesUser = parseInt(document.getElementById('personCalories').innerText) - parseInt(document.getElementById('calAddUp').innerText)
+	console.log(typeof(caloriesUser))
+	const data = {
+		username: localStorage.getItem('username'),
+		date: datetime,
+		calories:caloriesUser
+	}
+	const options = {
+		method: 'POST',
+		headers: {
+            'Authorization': localStorage.getItem('authorization'),
+			'Content-Type': 'application/vnd.api+json',
+			'Accept': 'application/vnd.api+json'
+		},
+		body: JSON.stringify(data)
+	}
+	const response = await fetch('/api/backlog',options)
+	const backfeed = await response.json()
+	console.log(backfeed)
 }
  
 async function excersiseBar(node){

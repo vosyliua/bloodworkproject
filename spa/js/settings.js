@@ -22,7 +22,7 @@ export async function setup(node) {
 		document.querySelector('header p').innerText = 'Settings Page'
         document.querySelector('header p').setAttribute('id', 'settingsHeader')
         node.querySelector('form').addEventListener('submit', await saveSettings)
-        if(localStorage.getItem('settingsToken' == "True")){
+        if(localStorage.getItem('settingsToken') == "true"){
             customiseNavbar(['home', 'stats','logout','vitamins'])
         }else{
             customiseNavbar(['logout'])
@@ -55,6 +55,7 @@ async function saveSettings(node){
     var height = document.getElementById("height").value
     if(age<= 0 || age >= 120){
         alert("Please enter a valid age")
+        return;
     }
     variables.push(height,age,gender,weight,vita,vitb1,vitb2,vitb3,vitb5,vitb6,vitb12,vitc,vitd,vite,vitk,ldl,hdl)
     var check = true
@@ -109,6 +110,8 @@ async function saveSettings(node){
 	const response = await fetch(url, options)
 	const json = await response.json()            
         console.log(data)
+        loadPage('home')
+        localStorage.setItem('settingsToken','true')
     }
 
     if(check == false){

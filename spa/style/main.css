@@ -601,3 +601,28 @@ li:hover {
     background:whitesmoke;
     color:black;
 }
+#backlogWrapper{
+    position: relative;
+    width: 70%;
+    display: grid;
+    text-align: center;
+
+    grid-template-columns: repeat(2, 1fr);
+    left:5%;
+
+    -moz-text-decoration-style: initial;
+}
+#mainBacklog{
+    position: absolute;
+    bottom:10%;
+    border: 5px solid rgb(71, 59, 59) ;
+    width: 50%;
+    background-color:whitesmoke;
+    left:20%;
+    }
+
+#datePer{
+    text-decoration: underline;
+
+}
+    

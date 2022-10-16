@@ -35,23 +35,13 @@ CREATE TABLE IF NOT EXISTS settings (
   userid mediumint UNSIGNED NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS foods (
+CREATE TABLE IF NOT EXISTS backlog(
   id mediumint UNSIGNED PRIMARY KEY AUTO_INCREMENT,
   name varchar(25) NOT NULL,
-  vita float UNSIGNED, 
-  vitb1 float UNSIGNED, 
-  vitb2 float UNSIGNED, 
-  vitb3 float UNSIGNED, 
-  vitb5 float UNSIGNED, 
-  vitb6 float UNSIGNED, 
-  vitb12 float UNSIGNED, 
-  vitc float UNSIGNED, 
-  vitd float UNSIGNED, 
-  vite float UNSIGNED, 
-  vitamink float UNSIGNED,
-  ldl float UNSIGNED,
-  hdl float UNSIGNED
+  date varchar(25) NOT NULL,
+  calories mediumint NOT NULL
 );
+
 
 ALTER TABLE `settings` ADD FOREIGN KEY (`userid`) REFERENCES `accounts` (`id`);
 

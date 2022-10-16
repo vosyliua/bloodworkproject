@@ -1,6 +1,6 @@
 import { db } from 'db'
 
-export async function addSettings(username) {
+export async function addSettings(data) {
 	let sql = `SELECT id FROM accounts WHERE user = "${data.username}"`
 	let result = await db.query(sql)
     data.userid = result[0].id
@@ -18,5 +18,24 @@ export async function getSettings(username){
 		return result
 	}else{
 		return false
+	}
+}
+
+export async function saveToBacklog(data){
+	let sql = `INSERT INTO backlog (name, date, calories) VALUES("${data.username}", "${data.date}", ${data.calories})`
+	console.log(sql)
+	let result = await db.query(sql)
+	console.log(result)
+	return result
+
+}
+
+export async function getBacklog(username){
+	let sql = `SELECT * FROM backlog WHERE name = "${username}"`
+	let result = await db.query(sql)
+	if(result.length!=0){
+		return result
+	}else{
+		return false;
 	}
 }

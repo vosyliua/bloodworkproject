@@ -21,7 +21,7 @@ export async function setup(node) {
 		console.log(node)
 		document.querySelector('header p').innerText = 'OVERWIEW OF YOUR BLOOD RESULTS'
         document.querySelector('header p').setAttribute('id', 'settingsHeader')
-		customiseNavbar(['home', 'settings', 'stats','logout'])
+		customiseNavbar(['home', 'settings','vitamins','logout'])
 	} catch(err) {
 		console.error(err)
 	}
