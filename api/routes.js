@@ -46,9 +46,13 @@ router.post('/api/accounts', async context => {
 	const body  = await context.request.body()
 	const data = await body.value
 	console.log(data)
-	await register(data)
-	context.response.status = 201
-	context.response.body = JSON.stringify({ status: 'success', msg: 'account created' })
+	if(await register(data) === true){
+		context.response.status = 201
+		context.response.body = JSON.stringify({ status: 'success', msg: 'account created' })
+	}else{
+		context.response.body = JSON.stringify({ status: 'failed', msg: 'account not created' })
+	}
+	
 })
 
 router.post('/api/settings', async context => {

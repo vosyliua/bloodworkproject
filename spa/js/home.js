@@ -12,7 +12,7 @@ export async function setup(node) {
 		await excersiseBar(node)
 		document.querySelector('header p').innerText = 'Welcome ' + localStorage.getItem('username') + "!"
 		document.querySelector('header p').setAttribute('id', 'settingsHeader')
-		customiseNavbar(['home', 'settings', 'logout','stats', 'vitamins']) // navbar if logged in
+		customiseNavbar(['settings', 'logout','stats', 'vitamins']) // navbar if logged in
 		const token = localStorage.getItem('authorization')
 
 		console.log(token)
@@ -129,6 +129,10 @@ async function excersiseBar(node){
 		const intensity = document.getElementById('effort')
 		const intensityValue = intensity.options[intensity.selectedIndex].text
 		const duration = document.getElementById('duration').value
+		if(duration == ""){
+			alert("Specify a duration")
+			return;
+		}
 		const running = 653
 		const swimming = 600
 		const walking = 350

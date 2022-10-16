@@ -57,7 +57,7 @@ export function getPageName(path = window.location.pathname) {
 	pathSegments.shift() // remove the first empty string
 	const firstSegment = pathSegments[0] // get the first segment
 	console.log('firstSegment', firstSegment)
-	const page = firstSegment ? firstSegment : 'home'
+	const page = firstSegment ? firstSegment : 'login'
 	console.log(`page: ${page}`)
 	return page
 }

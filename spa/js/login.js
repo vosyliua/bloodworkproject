@@ -17,10 +17,8 @@ export async function setup(node) {
 		remove1.remove()
 	}
 	try {
-		console.log('LOGIN: setup')
-		console.log(node)
-		document.querySelector('header p').innerText = 'Login Page'
-		customiseNavbar(['home', 'register', 'login'])
+		document.querySelector('header p').innerText = ''
+		customiseNavbar([ 'register', 'login'])
 		node.querySelector('form').addEventListener('submit', await login)
 	} catch(err) {
 		console.error(err)
@@ -48,7 +46,6 @@ async function login() {
 	if(response.status === 200) {
 		localStorage.setItem('username', json.data.username)
 		localStorage.setItem('authorization', token)
-		showMessage(`you are logged in as ${json.data.username}`)
 		await loadPage('home')
 	} else {
 		document.querySelector('input[name="pass"]').value = ''

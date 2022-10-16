@@ -48,8 +48,17 @@ export async function login(credentials) {
 
 export async function register(credentials) {
 	credentials.pass = await hash(credentials.pass, salt)
-	const sql = `INSERT INTO accounts(user, pass) VALUES("${credentials.user}", "${credentials.pass}")`
-	console.log(sql)
-	await db.query(sql)
-	return true
+	let sql = `SELECT * FROM accounts WHERE user = "${credentials.user}" `
+	let results = await db.query(sql)
+	console.log(results.length)
+	if(results.length == 0){
+		const sql = `INSERT INTO accounts(user, pass) VALUES("${credentials.user}", "${credentials.pass}")`
+		console.log(sql)
+		await db.query(sql)
+		return true
+		}
+	else{
+		return false
+	}
 }
+	

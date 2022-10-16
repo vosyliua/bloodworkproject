@@ -17,10 +17,7 @@ export async function setup(node) {
 		remove1.remove()
 	}
 	try {
-		console.log('REGISTER: setup')
-		console.log(node)
-		document.querySelector('header p').innerText = 'Register an Account'
-		customiseNavbar(['home', 'register', 'login', 'settings'])
+		customiseNavbar([ 'register', 'login'])
 		node.querySelector('form').addEventListener('submit', await register)
 	} catch(err) { // this will catch any errors in this script
 		console.error(err)
@@ -44,6 +41,11 @@ async function register() {
 	const response = await fetch(url, options)
 	const json = await response.json()
 	console.log(json)
-	showMessage('new account registered')
-	loadPage('login')
+	if(json.status == 201){
+		showMessage('new account registered')
+		loadPage('login')
+	}else{
+		alert('Account already exists')
+	}
+
 }

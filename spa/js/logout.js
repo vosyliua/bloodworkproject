@@ -18,7 +18,8 @@ export async function setup(node) {
 	}
 	try {
 		console.log('LOGOUT: setup')
-		customiseNavbar(['home', 'foo'])
+		customiseNavbar([])
+		document.querySelector('header p').innerText = ''
 		node.querySelectorAll('button').forEach( button => button.addEventListener('click', event => {
 			console.log(event.target.innerText)
 			if(event.target.innerText === 'OK') {
@@ -26,6 +27,7 @@ export async function setup(node) {
 				localStorage.removeItem('authorization')
 				loadPage('login')
 				showMessage('you are logged out')
+				localStorage.clear();
 			} else {
 				loadPage('home')
 			}

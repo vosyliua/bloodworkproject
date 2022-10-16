@@ -21,7 +21,7 @@ export async function setup(node){
 		document.querySelector('header p').innerText = 'Details Page'
         console.log()
         document.querySelector('header p').setAttribute('id', 'settingsHeader')
-		customiseNavbar(['home', 'settings', 'stats','logout'])
+		customiseNavbar(['home', 'settings', 'stats','logout','vitamins'])
 	} catch(err) {
 		console.error(err)
 	}

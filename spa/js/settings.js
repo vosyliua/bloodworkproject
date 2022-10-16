@@ -6,7 +6,7 @@ import { createToken, customiseNavbar, loadPage, showMessage } from '../util.js'
 export async function setup(node) {
     var remove3 = document.getElementById('dailyCalories')
     if(remove3 !=null ){
-		remove.remove()
+		remove3.remove()
 	}
     var remove = document.getElementById('wrapperFoods')
     if(remove !=null ){
@@ -22,7 +22,7 @@ export async function setup(node) {
 		document.querySelector('header p').innerText = 'Settings Page'
         document.querySelector('header p').setAttribute('id', 'settingsHeader')
         node.querySelector('form').addEventListener('submit', await saveSettings)
-		customiseNavbar(['home', 'settings', 'stats','logout'])
+		customiseNavbar(['home', 'stats','logout','vitamins'])
 	} catch(err) {
 		console.error(err)
 	}
@@ -49,7 +49,7 @@ async function saveSettings(node){
     var hdl = document.getElementById("hdl").value
     var height = document.getElementById("height").value
     if(age<= 0 || age >= 120){
-        showMessage("please enter a valid age")
+        alert("Please enter a valid age")
     }
     variables.push(height,age,gender,weight,vita,vitb1,vitb2,vitb3,vitb5,vitb6,vitb12,vitc,vitd,vite,vitk,ldl,hdl)
     var check = true
@@ -107,6 +107,7 @@ async function saveSettings(node){
     }
 
     if(check == false){
+        alert("Please enter all the fields")
         console.log("nay")
     }
 }

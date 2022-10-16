@@ -1,4 +1,5 @@
 
+
 /* this is where we set up our media queries */
 
 @import url(./material.css) (pointer: coarse);
@@ -6,9 +7,10 @@
 @import url(./custom.css) (pointer: fine);
 
 
+
 ul {
         
-    
+    background: gray;
     background-attachment: fixed;
     background-repeat: no-repeat;
 	padding: 10px;
@@ -20,6 +22,8 @@ ul {
 	align-items: center;
 	/* height: 3em; */
 	justify-content: flex-start;
+    text-decoration: none;
+    
 }
 
 li {
@@ -36,32 +40,41 @@ li {
 	font-size: 0.8em;
     background-color: whitesmoke;
     border-radius: 2em;
+    text-decoration: none;
 }
 
 body {
 	overflow-x: hidden;
-	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f094e3), to(#91ddef));
-    background-image: -webkit-linear-gradient(to top, #f074ec 0%, #b2eaf0 100%);
-    background-image: -moz-linear-gradient(to top, #f094ea 0%, #b2eaf0 100%);
-    background-image: -o-linear-gradient(to top, #f0a4eb 0%, #b2eaf0 100%);
-    background-image: linear-gradient(to top, #eda8eb 0%, #b2eaf0 100%);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#721766), to(#0f5666));
+    background-image: -webkit-linear-gradient(to top, #f074ec 0%, #15707a 100%);
+    background-image: -moz-linear-gradient(to top, #cf0fc3 0%, #2c828b 100%);
+    background-image: -o-linear-gradient(to top, #f0a4eb 0%, #206b74 100%);
+    background-image: linear-gradient(to top, #eda8eb 0%, #18717a 100%);
     background-attachment: fixed;
     background-repeat: no-repeat;
 	width: 100%;
-
 	padding: 1em;
 	padding-bottom: 0.5em;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
 
 
 }
 
+header{
+      background-color:rgba(187, 181, 181, 0.733);
+      padding: 10px;
+}
+
 li:hover a {
-	color: black;
+	color: white
 
 }
 
 li:hover {
-	background-color: white;
+	background-color: black;
     border-radius: 2em;
 }
   
@@ -193,9 +206,13 @@ li:hover {
 }
 
 
+
 #settingsHeader{
     text-align: center;
     font-size: 40px ;
+  text-align: center;
+  font-size: 30px;
+  height: 100%;
 }
 
 #explanation{
@@ -473,7 +490,114 @@ li:hover {
     width: 180px;
 }
 
+#loginP{
+    position: absolute;
+    right:48%
+}
+
 #effort{
     border: 3px solid black;
     padding:10px;
+}
+.login{
+    position: absolute;
+    width: 30%;
+    left:33%;
+    bottom:55%;
+    
+}
+
+.login-form {
+  padding: 2em;
+  position: absolute;
+  background: rgba(black, .15);
+  
+  &:before {
+    content: '';
+    position: absolute;
+    top: -2px; 
+    left: 0;
+    
+    background: #f5f6f8;    
+  }
+  
+  @media screen and (min-width: 600px) {
+    width: 50vw;
+    max-width: 15em;
+  }
+}
+
+  .flex-row {
+    display: flex;
+    margin-bottom: 1em;
+  }
+  
+  .lf--label {
+    width: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    background: #f5f6f8;
+    cursor: pointer;
+  }
+  .lf--input {
+    flex: 1;
+    padding: 1em;
+    border: 0;
+
+    font-size: 1rem;
+
+    &:focus {
+      outline: none;
+      transition: transform .15s ease;
+      transform: scale(1.1);
+    }
+  }
+
+  .lf--submit {
+    display: block;
+    padding: 1em;
+    width: 100%;
+    
+    
+    background: linear-gradient(to top, #000000 0%, #011416 100%);
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+    font-size: .75em;
+    font-weight: 600;
+    text-shadow: 0 1px 0 rgba(black, .2);
+    
+    &:focus {
+      outline: none;
+      transition: transform .15s ease;
+      transform: scale(1.1);
+    }
+  }
+
+::placeholder { color: $gray; }
+
+
+#logoutDiv{
+    position:absolute;
+    right:45%;
+    bottom:60%;
+}
+
+.logoutButtons{
+    background: linear-gradient(to top, #000000 0%, #011416 100%);
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+    font-size: .75em;
+    font-weight: 600;
+    text-shadow: 0 1px 0 rgba(black, .2);
+    width: 50%;
+    padding:20px;
+}
+
+.logoutButtons:hover{
+    background:whitesmoke;
+    color:black;
 }
