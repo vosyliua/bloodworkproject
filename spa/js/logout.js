@@ -26,7 +26,6 @@ export async function setup(node) {
 				localStorage.removeItem('username')
 				localStorage.removeItem('authorization')
 				loadPage('login')
-				showMessage('you are logged out')
 				localStorage.clear();
 			} else {
 				loadPage('home')

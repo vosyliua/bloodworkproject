@@ -22,7 +22,12 @@ export async function setup(node) {
 		document.querySelector('header p').innerText = 'Settings Page'
         document.querySelector('header p').setAttribute('id', 'settingsHeader')
         node.querySelector('form').addEventListener('submit', await saveSettings)
-		customiseNavbar(['home', 'stats','logout','vitamins'])
+        if(localStorage.getItem('settingsToken' == "True")){
+            customiseNavbar(['home', 'stats','logout','vitamins'])
+        }else{
+            customiseNavbar(['logout'])
+        }
+		
 	} catch(err) {
 		console.error(err)
 	}

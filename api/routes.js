@@ -68,7 +68,12 @@ router.get('/api/settings/:username', async context => {
 		const username = context.params.username
 		console.log(username)
 		const settings = await getSettings(username);
-		context.response.body = {status:'success', data :settings}
+		if(settings === false){
+			context.response.body = {status:'failed'}
+		}else{
+			context.response.body = {status:'success', data :settings}
+		}
+
 	} catch(err) {
 		err.data = {
 			code: 401,

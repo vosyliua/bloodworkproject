@@ -14,6 +14,9 @@ export async function addSettings(username) {
 export async function getSettings(username){
 	let sql = `SELECT * FROM settings WHERE username = "${username}" ORDER BY ID DESC LIMIT 1`
 	let result = await db.query(sql)
-	return result
-	console.log(result)
+	if(result.length!=0){
+		return result
+	}else{
+		return false
+	}
 }

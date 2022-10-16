@@ -46,10 +46,33 @@ async function login() {
 	if(response.status === 200) {
 		localStorage.setItem('username', json.data.username)
 		localStorage.setItem('authorization', token)
-		await loadPage('home')
+		await loadMain()
 	} else {
 		document.querySelector('input[name="pass"]').value = ''
 		showMessage(json.errors[0].detail)
+	}
+
+}
+
+
+async function loadMain(){
+	const username = localStorage.getItem('username')
+	const options = {
+		method: 'GET',
+		headers: {
+			'Authorization' : localStorage.getItem('authorization'),
+			'Content-Type': 'application/vnd.api+json'
+		}
+	}
+	const response = await fetch(`/api/settings/${username}`, options)
+	const userData = await response.json()
+	console.log(userData)
+	if(userData.status == "failed"){
+		localStorage.setItem('settingsToken','false')
+		loadPage('settings')
+	}else{
+		localStorage.setItem('settingsToken','true')
+		loadPage('home')
 	}
 
 }
