@@ -73,7 +73,7 @@ async function setBmi(node){
 	x.style.left = "0%"
 	x.style.width = "100%"
 	x.style.border = "5px solid black"
-	x.style.backgroundColor = "whitesmoke"
+	x.style.backgroundColor = "navajowhite"
 	x.style.textAlign ="center"
 	node.appendChild(x)
 

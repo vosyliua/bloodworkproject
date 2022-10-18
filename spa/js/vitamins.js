@@ -16,7 +16,6 @@ export async function setup(node) {
 		remove1.remove()
 	}
 	try {
-        await setBmi(node)
         await setPage(node)
         var detailsid = localStorage.getItem('details')
         if(detailsid != null){
