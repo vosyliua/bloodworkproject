@@ -29,6 +29,17 @@ async function register() {
 	const formData = new FormData(event.target)
 	const data = Object.fromEntries(formData.entries())
 	console.log(data)
+	if(data.pass.length <=5 || data.user.length <=5){
+		alert("Username And Password Must Be Greater Than 5 Characters!")
+		return;
+	}
+	const checks = ["`", "£", "@", "!", "^", "*", "(", ")", "#", "'", ",", ".", "?", "<", ">", "=", "+", "-", "_", "%",'"',"&"]
+	checks.forEach(check =>{
+		if(data.user.includes(check)){
+			alert("Username Must Not Include Any Special Characters!")
+			return;
+		}
+	})
 	const url = '/api/accounts'
 	const options = {
 		method: 'POST',

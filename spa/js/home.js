@@ -1,23 +1,28 @@
 
 /* home.js */
 
-import { customiseNavbar, showMessage } from '../util.js'
+import { customiseNavbar, showMessage, loadPage } from '../util.js'
 
 
 
 export async function setup(node) {
 	try {
+		if (localStorage.getItem("settingsToken") !== null && localStorage.getItem('settingsToken') !="false") {
+			
+		}else{
+			loadPage('login')
+			return;
+		}
 		await getDailyCal(node)
 		await searchBar(node)
 		await excersiseBar(node)
 		document.querySelector('header p').innerText = 'Welcome ' + localStorage.getItem('username') + "!"
 		document.querySelector('header p').setAttribute('id', 'settingsHeader')
-		customiseNavbar(['settings', 'logout','stats', 'vitamins','backlog']) // navbar if logged in
+		customiseNavbar(['settings', 'logout','stats', 'vitamins','backlog'])
 		const token = localStorage.getItem('authorization')
 
 		console.log(token)
-		if(token === null) customiseNavbar(['home', 'login','register']) //navbar if logged out
-		// add content to the page
+		if(token === null) customiseNavbar(['home', 'login','register'])
 
 	} catch(err) {
 		console.error(err)
@@ -68,19 +73,6 @@ async function searchFood(event){
 }
 
 async function searchBar(node){
-	var x = document.createElement("INPUT");
-		var v = document.createElement("INPUT");
-		v.setAttribute('type', "text")
-		v.setAttribute('id', "searchMeasure")
-		x.setAttribute("type", "text");
-		x.setAttribute("id","searchbar")
-		x.setAttribute('placeholder', "Enter Food")
-		v.setAttribute('placeholder', "Grams")
-		node.appendChild(v)
-		node.appendChild(x)
-		var white = document.createElement('p')
-		node.appendChild(white)
-		var button1 = document.createElement('button')
 		var foodLabels = document.createElement('div')
 		foodLabels.setAttribute('id', 'foodLabels')
 		var foodName = document.createElement('p')
@@ -95,7 +87,6 @@ async function searchBar(node){
 		carbAmount.setAttribute('id','carbAmount')
 		calAmount.setAttribute('id','calAmount')
 		fatAmount.setAttribute('id','fatAmount')
-		button1.setAttribute("id","searchButton")
 		foodName.innerText = "Description"
 		protAmount.innerText = "Protein Amount"
 		carbAmount.innerText = "Carbohydrate Amount"
@@ -108,14 +99,8 @@ async function searchBar(node){
 		foodLabels.appendChild(carbAmount)
 		foodLabels.appendChild(fatAmount)
 		foodLabels.appendChild(saveBacklog)
-
-		node.appendChild(button1)
 		node.appendChild(foodLabels)
-		button1.innerHTML = "Search"
-		var c = document.createElement('h2')
-		c.setAttribute('id',"searchLabel")
-		c.innerText = "Enter what you've eaten"
-		node.appendChild(c)
+		var button1 = node.getElementById('searchButton')
 		button1.addEventListener('click', await searchFood)
 		saveBacklog.addEventListener('click', await saveToBacklog)
 }
@@ -296,7 +281,7 @@ function loadFood(information){
 	carbDiv.appendChild(carbEle)
 	fatDiv.appendChild(fatEle)
 	saveButton.setAttribute('class', 'saveFood')
-	saveButton.innerText = "Save"
+	saveButton.innerText = "ADD"
 	wrapper.setAttribute('id', 'wrapperFoods')
 	wrapper.appendChild(imgDiv)
 	wrapper.appendChild(nameDiv)

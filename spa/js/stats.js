@@ -3,6 +3,12 @@
 import { createToken, customiseNavbar, loadPage, showMessage } from '../util.js'
 
 export async function setup(node) {
+    if (localStorage.getItem("settingsToken") !== null && localStorage.getItem('settingsToken') !="false") {
+			
+	}else{
+		loadPage('login')
+		return;
+	}
     var remove3 = document.getElementById('dailyCalories')
     if(remove3 !=null ){
 		remove3.remove()
@@ -38,12 +44,14 @@ async function userInformation(node){
 	}
 	const response = await fetch(`/api/settings/${username}`, options)
 	const data = await response.json()
+    console.log(data)
     console.log(data.data[0])
     if(data.data[0].vita <= 15  || data.data[0].vita >= 65  ){
         const vitamina = `Your Vitamin A blood levels are not in the recomended range of 15-60 Micrograms Per Decilitre, yours is ${data.data[0].vita} Micrograms Per Decilitre . Vitamin A deficencies can cause cirrhosis of the liver, pancreatic insufficiency celiac disease and more.`
         const vitamina1 = "Foods that are healthy and high in Vitamin A are Leafy green vegetables (kale, spinach, broccoli), orange and yellow vegetables (carrots, sweet potatoes, pumpkin and other winter squash, summer squash. "
         const vitamina2 = "Vitamin A helps form and maintain healthy teeth, skeletal and soft tissue, mucus membranes, and skin. It is also known as retinol because it produces the pigments in the retina of the eye."
         const vitaminab = vitamina + '\n' + vitamina1 + '\n' + vitamina2
+        console.log(node)
         const vitaminabp = document.createElement('p')
         vitaminabp.innerText = vitaminab
         var vitadiv = document.createElement('div')
@@ -55,7 +63,10 @@ async function userInformation(node){
         const vitaminag = `Your Vitamin A levels, which are ${data.data[0].vita} fall in the healthy range between 15-60 Micrograms Per Decilitre`
         const vitaminagp = document.createElement('p')
         vitaminagp.innerText = vitaminag
-        node.getElementById('informationDivb').appendChild(vitaminagp)
+        var vitadiv = document.createElement('div')
+        vitadiv.setAttribute('id','informationDivg')
+        vitadiv.appendChild(vitaminagp)
+        node.appendChild(vitadiv)
 
     }
     if(data.data[0].vitb1 <= 74  || data.data[0].vitb1 >= 224  ){
@@ -66,8 +77,9 @@ async function userInformation(node){
         const vitaminbbp = document.createElement('p')
         vitaminbbp.innerText = vitaminbb
         var vitbdiv = document.createElement('div')
-        vitbdiv.setAttribute('id','informationDiv1b')
+        vitbdiv.setAttribute('id','informationDivb')
         vitbdiv.appendChild(vitaminbbp)
+        
         node.appendChild(vitbdiv)
     }
     else{
@@ -75,7 +87,7 @@ async function userInformation(node){
         const vitaminbgp = document.createElement('p')
         vitaminbgp.innerText = vitaminbg
         var vitbdiv = document.createElement('div')
-        vitbdiv.setAttribute('id','informationDiv1g')
+        vitbdiv.setAttribute('id','informationDivg')
         vitbdiv.appendChild(vitaminbgp)
         node.appendChild(vitbdiv)
     } 
@@ -87,7 +99,7 @@ async function userInformation(node){
         const vitaminbbbp = document.createElement('p')
         vitaminbbbp.innerText = vitaminbbb
         var vitbbdiv = document.createElement('div')
-        vitbbdiv.setAttribute('id','informationDiv2b')
+        vitbbdiv.setAttribute('id','informationDivb')
         vitbbdiv.appendChild(vitaminbbbp)
         node.appendChild(vitbbdiv)
     }
@@ -96,7 +108,7 @@ async function userInformation(node){
         const vitaminbbgp = document.createElement('p')
         vitaminbbgp.innerText = vitaminbbg
         var vitbbdiv = document.createElement('div')
-        vitbbdiv.setAttribute('id','informationDiv2g')
+        vitbbdiv.setAttribute('id','informationDivg')
         vitbbdiv.appendChild(vitaminbbgp)
         node.appendChild(vitbbdiv)
     } 
@@ -108,7 +120,7 @@ async function userInformation(node){
         const vitaminbbbbp = document.createElement('p')
         vitaminbbbbp.innerText = vitaminbbbb
         var vitbbbdiv = document.createElement('div')
-        vitbbbdiv.setAttribute('id','informationDiv3b')
+        vitbbbdiv.setAttribute('id','informationDivb')
         vitbbbdiv.appendChild(vitaminbbbbp)
         node.appendChild(vitbbbdiv)
     }
@@ -117,7 +129,7 @@ async function userInformation(node){
         const vitaminbbbgp = document.createElement('p')
         vitaminbbbgp.innerText = vitaminbbbg
         var vitbbbdiv = document.createElement('div')
-        vitbbbdiv.setAttribute('id','informationDiv3g')
+        vitbbbdiv.setAttribute('id','informationDivg')
         vitbbbdiv.appendChild(vitaminbbbgp)
         node.appendChild(vitbbbdiv)
     }
@@ -129,7 +141,7 @@ async function userInformation(node){
         const vitaminbbbbbp = document.createElement('p')
         vitaminbbbbbp.innerText = vitaminbbbbb
         var vitbbbbdiv = document.createElement('div')
-        vitbbbbdiv.setAttribute('id','informationDiv4b')
+        vitbbbbdiv.setAttribute('id','informationDivb')
         vitbbbbdiv.appendChild(vitaminbbbbbp)
         node.appendChild(vitbbbbdiv)
     }
@@ -138,7 +150,7 @@ async function userInformation(node){
         const vitaminbbbbgp = document.createElement('p')
         vitaminbbbgp.innerText = vitaminbbbbg
         var vitbbbbdiv = document.createElement('div')
-        vitbbbdiv.setAttribute('id','informationDiv4g')
+        vitbbbdiv.setAttribute('id','informationDivg')
         vitbbbbdiv.appendChild(vitaminbbbbgp)
         node.appendChild(vitbbbbdiv)
     }
@@ -150,16 +162,16 @@ async function userInformation(node){
         const vitaminbbbbbbp = document.createElement('p')
         vitaminbbbbbbp.innerText = vitaminbbbbbb
         var vitbbbbbdiv = document.createElement('div')
-        vitbbbbbdiv.setAttribute('id','informationDiv4b')
+        vitbbbbbdiv.setAttribute('id','informationDivb')
         vitbbbbbdiv.appendChild(vitaminbbbbbbp)
         node.appendChild(vitbbbbbdiv)
     }
     else{
-        const vitaminbbbbbg = `Your Vitamin B6 levels, which are ${data.data[0].vitb6} Nanograms Per Mililiter in the healthy range between 5 - 25 Nanograms Per Mililiter`
+        const vitaminbbbbbg = `Your Vitamin B6 levels, which are ${data.data[0].vitb6} Nanograms Per Mililiter fall in the healthy range between 5 - 25 Nanograms Per Mililiter`
         const vitaminbbbbbgp = document.createElement('p')
-        vitaminbbbbgp.innerText = vitaminbbbbbg
+        vitaminbbbbbgp.innerText = vitaminbbbbbg
         var vitbbbbbdiv = document.createElement('div')
-        vitbbbdiv.setAttribute('id','informationDiv4g')
+        vitbbbbbdiv.setAttribute('id','informationDivg')
         vitbbbbbdiv.appendChild(vitaminbbbbbgp)
         node.appendChild(vitbbbbbdiv)
     }
@@ -171,21 +183,18 @@ async function userInformation(node){
         const vitaminbbbbbbbp = document.createElement('p')
         vitaminbbbbbbbp.innerText = vitaminbbbbbbb
         var vitbbbbbbdiv = document.createElement('div')
-        vitbbbbbbdiv.setAttribute('id','informationDiv4b')
+        vitbbbbbbdiv.setAttribute('id','informationDivb')
         vitbbbbbbdiv.appendChild(vitaminbbbbbbbp)
         node.appendChild(vitbbbbbbdiv)
     }
     else{
-        const vitaminbbbbbbg = `Your Vitamin B12 levels, which are ${data.data[0].vitb12} Nanograms Per Mililiter in the healthy range between 205-678 Nanograms Per Mililiter`
+        const vitaminbbbbbbg = `Your Vitamin B12 levels, which are ${data.data[0].vitb12} Nanograms Per Mililiter fall in the healthy range between 205-678 Nanograms Per Mililiter`
         const vitaminbbbbbbgp = document.createElement('p')
         vitaminbbbbbgp.innerText = vitaminbbbbbg
         var vitbbbbbbdiv = document.createElement('div')
-        vitbbbbdiv.setAttribute('id','informationDiv4g')
+        vitbbbbdiv.setAttribute('id','informationDivg')
         vitbbbbbbdiv.appendChild(vitaminbbbbbbgp)
         node.appendChild(vitbbbbbbdiv)
     }
     
-    
-
-	
 }

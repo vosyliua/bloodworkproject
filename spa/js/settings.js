@@ -108,10 +108,18 @@ async function saveSettings(node){
 		body: JSON.stringify(data)
 	}
 	const response = await fetch(url, options)
-	const json = await response.json()            
+    if(response.status == 201){
+        const json = await response.json()
+        localStorage.setItem('settingsToken',"true")           
         console.log(data)
         loadPage('home')
         localStorage.setItem('settingsToken','true')
+    }else{
+        console.log(response)
+        alert("An Error Has Occured")
+        return;
+    }
+	
     }
 
     if(check == false){

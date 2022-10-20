@@ -48,8 +48,13 @@ async function login() {
 		localStorage.setItem('authorization', token)
 		await loadMain()
 	} else {
+		var errorPop = document.getElementById('wrapperError')
+		errorPop.hidden = false
+		setTimeout(() => {
+			errorPop.hidden = true;
+			}, "4000")
 		document.querySelector('input[name="pass"]').value = ''
-		showMessage(json.errors[0].detail)
+		
 	}
 
 }

@@ -6,8 +6,6 @@
 
 @import url(./custom.css) (pointer: fine);
 
-
-
 ul {
         
     background: gray;
@@ -100,31 +98,12 @@ li:hover {
     background-color:#002ead;
       transition: 0.1s;
 }
-#searchButton{
-    border-radius: 4px
-    position:absolute;
-    top:30%;
-    left:34%;
-    padding:9px;
-    font-family: "Farfetch Basis", "Helvetica Neue", Arial, sans-serif;
-    display: block;
-    font-size: large;
-    box-shadow: 0px 0px 12px -2px rgba(0,0,0,0.5);
-    line-height: 1.25;
-    background: #222;
-    text-decoration: none;
-    color: white;
-    font-size: 16px;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    transition: background-color .6s ease;
-    overflow: hidden;
-}
 
 #searchButton{
+    width: 140px;
     position:absolute;
-    top:30%;
-    left:34%;
+    top:50%;
+    left:37.5%;
     padding:9px;
     font-family: 'Rubik', sans-serif;
     background: #CCD1D9;
@@ -149,7 +128,7 @@ li:hover {
 
 #searchbar{
     position:absolute;
-    top:30%;
+    top:50%;
     left: 5%;
     display: block;
     width: 20%;
@@ -161,10 +140,10 @@ li:hover {
 
 #searchMeasure{
     position:absolute;
-    top:30%;
+    top:50%;
     left:27%;
     display: block;
-    width: 5%;
+    width: 7%;
     font-size: large;
     padding:8px;
     border: 3px solid black;
@@ -176,7 +155,7 @@ li:hover {
 
 #second{
     position:absolute;
-    left: 55%;
+    left: 45%;
     bottom:27%;
     background-color:blanchedalmond;
         border: 3px solid #333333;
@@ -190,7 +169,7 @@ li:hover {
 
 #first{
     position:absolute;
-    left: 35%;
+    left: 28%;
     bottom:10%;
     border: 3px solid #333333;
     border-radius: 2% 6% 5% 4% / 1% 1% 2% 4%;
@@ -200,7 +179,7 @@ li:hover {
 
 #background{
      position:absolute;
-    left: 50%;
+    left: 42%;
     bottom:10%;
 
 }
@@ -240,11 +219,12 @@ li:hover {
     position:absolute;
     font-size: 25px;
     background-color: whitesmoke;
-    bottom:35%;
+    bottom:40%;
     border: 3px solid #333333;
     border-radius: 2% 6% 5% 4% / 1% 1% 2% 4%;
     padding: 20px;
     background-color:blanchedalmond;
+    left:62%;
 }
 
 
@@ -378,19 +358,19 @@ li:hover {
 #searchLabel{
     position: absolute;
     font-size: 25px;
-    bottom: 70%;
+    bottom: 50%;
     left:10%;
     
 
 }
 
 #wrapperFoods{
-    width: 40%;
+    width: 46.5%;
     position: absolute;
     left:5%;
-    top:38%;
+    top:58%;
     display: grid;
-    grid-template-columns: 1fr 3fr 2fr repeat(4, 1fr);
+    grid-template-columns: 1fr 3fr 2fr repeat(3, 1fr) 4fr;
     align-items: center;
     justify-content: center;
     color: black;
@@ -430,6 +410,7 @@ li:hover {
       transition: 0.1s;
 }
 .saveFood{
+    width: 140px;
     padding:9px;
     font-family: 'Rubik', sans-serif;
     background: #CCD1D9;
@@ -445,7 +426,6 @@ li:hover {
     text-transform: uppercase;
     transition: background-color .6s ease;
     overflow: hidden;
-    width: 100px;
 }
 
 
@@ -467,8 +447,8 @@ li:hover {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, 1fr);
     grid-column-gap: 1px;
-    bottom : 40%;
-    right:57%;
+    bottom : 63%;
+    right:54%;
     place-items: center;
     
 }
@@ -508,7 +488,7 @@ li:hover {
 #excersise{
     border: 3px solid black;
     padding:10px;
-    width: 180px;
+    width: 196px;
 }
 
 #loginP{
@@ -523,8 +503,11 @@ li:hover {
 .login{
     position: absolute;
     width: 30%;
-    left:33%;
-    bottom:55%;
+    left:27%;
+    bottom:28%;
+    padding:150px;
+    border: 3px solid black;
+    background-color: wheat;
     
 }
 
@@ -577,6 +560,7 @@ li:hover {
   }
 
   .lf--submit {
+    position:relative;
     display: block;
     padding: 1em;
     width: 100%;
@@ -636,7 +620,7 @@ li:hover {
     bottom:5%;
     border: 5px solid rgb(71, 59, 59) ;
     width: 50%;
-    background-color:antiquewhite;
+    background-color:whitesmoke;
     left:25%;
     }
 
@@ -644,4 +628,24 @@ li:hover {
     text-decoration: underline;
 
 }
+#errorDiv{
+    display: flex;
+    background-color: rgba(212, 30, 97, 0.964);
+    border-radius: 10px;
+    align-items:center;
+    padding-bottom: 10px;
+    word-wrap: break-word;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+    right:37%;
+    bottom:42%;
+    position: absolute;
+    width: 30%;
     
+}
+
+#errorMsg{
+    color: white;
+}
+

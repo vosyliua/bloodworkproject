@@ -1,6 +1,12 @@
 import { createToken, customiseNavbar, loadPage, showMessage } from '../util.js'
 
 export async function setup(node){
+	if (localStorage.getItem("settingsToken") !== null && localStorage.getItem('settingsToken') !="false") {
+			
+		}else{
+			loadPage('login')
+			return;
+	}
     var remove3 = document.getElementById('dailyCalories')
     if(remove3 !=null ){
 		remove3.remove()
