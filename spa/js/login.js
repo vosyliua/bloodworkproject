@@ -1,6 +1,4 @@
 
-/* login.js */
-
 import { createToken, customiseNavbar, loadPage, showMessage } from '../util.js'
 
 export async function setup(node) {

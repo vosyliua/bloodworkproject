@@ -1,5 +1,4 @@
 
-/* middleware.js */
 
 import { Application, send, Status } from 'oak'
 import { extractCredentials, fileExists, getEtag } from 'util'
@@ -172,7 +171,6 @@ async function setHeaders(context, next) {
 	await next()
 }
 
-// last middle ware function serves up the html page
 async function defaultResponse(context) {
 	console.log('default page')
 	const data = await Deno.readTextFile('spa/index.html')

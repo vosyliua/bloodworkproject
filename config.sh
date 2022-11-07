@@ -1,6 +1,3 @@
-#!/bin/bash
-
-# INSTALLATION SCRIPT FOR THE API/SPA TEMPLATE
 
 red=`tput setaf 1`
 green=`tput setaf 2`

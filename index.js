@@ -1,6 +1,4 @@
 
-/* index.js */
-
 import app from './api/middleware.js'
 
 const defaultPort = 8080

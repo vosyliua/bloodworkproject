@@ -1,0 +1,17 @@
+{
+ "name": "Project Start",
+ "children": [
+  {
+   "title": "Page 1",
+   "id": "0fb70a73-ec51-8056-ada3-3e8794c1f11c",
+   "pageId": "0fb70a73-ec51-8056-ada3-3e8794c1f11c",
+   "type": "page"
+  },
+  {
+   "title": "Page 2",
+   "id": "7ca485a6-0cba-3269-1085-ddcdfe27f4c5",
+   "pageId": "7ca485a6-0cba-3269-1085-ddcdfe27f4c5",
+   "type": "page"
+  }
+ ]
+}

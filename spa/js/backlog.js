@@ -110,11 +110,11 @@ async function getBacklogs(node){
 		if(item.calories < 0 ){
 			var gainedWeight = (100*item.calories) / 7200
 			var gainedWeight1 = (gainedWeight*1000) / 100
-			fragment.getElementById('calPer').innerText = "You overate by: " + parseInt(Math.abs(item.calories))+" Calories, and gained " +Math.round(Math.abs(gainedWeight1)) + " grams of fat"
+			fragment.getElementById('calPer').innerText = "You overate by: " + parseInt(Math.abs(item.calories))+" Calories, and gained " +Math.round(Math.abs(gainedWeight1)) + " grams of weight"
 		}else{
 			var lostWeight = (100*item.calories) / 7200
 			var lostWeight1 = (lostWeight*1000) / 100
-			fragment.getElementById('calPer').innerText = "You underate by: " +item.calories +" Calories , and lost "+ Math.round(lostWeight1)+" grams of fat"
+			fragment.getElementById('calPer').innerText = "You underate by: " +item.calories +" Calories , and lost "+ Math.round(lostWeight1)+" grams of weight"
 		}
 		wrapperFor.appendChild(fragment)
 		node.appendChild(wrapperFor)
