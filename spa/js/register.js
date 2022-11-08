@@ -1,5 +1,5 @@
 
-/* register.js */
+
 
 import { customiseNavbar, loadPage, showMessage } from '../util.js'
 

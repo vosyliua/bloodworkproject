@@ -29,6 +29,12 @@ CREATE TABLE IF NOT EXISTS settings (
   vitk float NOT NULL,
   ldl float NOT NULL,
   hdl float NOT NULL,
+  iron float NOT NULL,
+  zinc float NOT NULL,
+  potassium float NOT NULL,
+  sodium float NOT NULL,
+  magnesium float NOT NULL,
+  calcium float NOT NULL,
   date varchar(25) NOT NULL,
   username varchar(25) NOT NULL,
   userid mediumint UNSIGNED NOT NULL

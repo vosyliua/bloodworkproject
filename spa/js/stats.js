@@ -1,4 +1,3 @@
-/* login.js */
 
 import { createToken, customiseNavbar, loadPage, showMessage } from '../util.js'
 

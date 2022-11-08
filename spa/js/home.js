@@ -18,7 +18,7 @@ export async function setup(node) {
 		await excersiseBar(node)
 		document.querySelector('header p').innerText = 'Welcome ' + localStorage.getItem('username') + "!"
 		document.querySelector('header p').setAttribute('id', 'settingsHeader')
-		customiseNavbar(['settings', 'logout','stats', 'vitamins','backlog'])
+		customiseNavbar(['settings', 'logout', 'vitamins','backlog'])
 		const token = localStorage.getItem('authorization')
 
 		console.log(token)
@@ -59,6 +59,7 @@ async function searchFood(event){
 					showMessage("food not found")
 					return
 				}
+        console.log(data)
 				console.log(data.hints[0].food.nutrients)
 				const information = {
 					name: data.hints[0].food.label,

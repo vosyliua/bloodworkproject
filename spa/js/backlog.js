@@ -27,7 +27,7 @@ export async function setup(node){
 		document.querySelector('header p').innerText = 'Backlog Page'
         console.log()
         document.querySelector('header p').setAttribute('id', 'settingsHeader')
-		customiseNavbar(['home', 'settings', 'stats','logout','vitamins'])
+		customiseNavbar(['home', 'settings','logout','vitamins'])
 		await setBmi(node)
         await getBacklogs(node)
 		
@@ -49,11 +49,11 @@ async function setBmi(node){
     const data = await response.json()
     const extracted = data.data[0]
     console.log(extracted)
-    const height = extracted.height/100
+    const height = (extracted.height/100) * 2
     console.log(height*height+"height squared")
     console.log(height+"normal height")
     console.log(extracted.weight+"weight")
-    const bmi = extracted.weight * (height*height)
+    const bmi = Math.round(extracted.weight / height)
 	let bmiResult = ""
     if(bmi <=18.5){
 		bmiResult = "UNDERWEIGHT"
@@ -74,7 +74,7 @@ async function setBmi(node){
 		if (bmiResult == weight){bmiResult = weight}
 		
 	})
-	x.innerText = `Your BMI is ${bmi}, which means you are ${bmiResult}`
+	x.innerText = `Your BMI is ${bmi} - you are ${bmiResult}`
 	x.style.position = "absolute"
 	x.style.left = "0%"
 	x.style.width = "100%"

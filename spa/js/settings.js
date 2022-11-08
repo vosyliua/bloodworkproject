@@ -1,5 +1,4 @@
 
-/* login.js */
 
 import { createToken, customiseNavbar, loadPage, showMessage } from '../util.js'
 
@@ -23,7 +22,7 @@ export async function setup(node) {
         document.querySelector('header p').setAttribute('id', 'settingsHeader')
         node.querySelector('form').addEventListener('submit', await saveSettings)
         if(localStorage.getItem('settingsToken') == "true"){
-            customiseNavbar(['home', 'stats','logout','vitamins'])
+            customiseNavbar(['home','backlog','logout','vitamins'])
         }else{
             customiseNavbar(['logout'])
         }
@@ -39,6 +38,7 @@ async function saveSettings(node){
     var age = document.getElementById("age").value
     var gender = document.getElementById("gender").value
     var weight = document.getElementById("weight").value
+    var height = document.getElementById("height").value
     var vita = document.getElementById("vita").value
     var vitb1 = document.getElementById("vitb1").value
     var vitb2 = document.getElementById("vitb2").value
@@ -52,12 +52,17 @@ async function saveSettings(node){
     var vitk = document.getElementById("vitb12").value
     var ldl = document.getElementById("ldl").value
     var hdl = document.getElementById("hdl").value
-    var height = document.getElementById("height").value
+    var calcium = document.getElementById("calcium").value
+    var magnesium = document.getElementById("magnesium").value
+    var zinc = document.getElementById("zinc").value
+    var potassium = document.getElementById("potassium").value
+    var iron = document.getElementById("iron").value
+    var sodium = document.getElementById("sodium").value
     if(age<= 0 || age >= 120){
         alert("Please enter a valid age")
         return;
     }
-    variables.push(height,age,gender,weight,vita,vitb1,vitb2,vitb3,vitb5,vitb6,vitb12,vitc,vitd,vite,vitk,ldl,hdl)
+    variables.push(height,age,gender,weight,vita,vitb1,vitb2,vitb3,vitb5,vitb6,vitb12,vitc,vitd,vite,vitk,ldl,hdl,calcium, magnesium, zinc, potassium, iron, sodium)
     var check = true
     variables.forEach(variable =>{
         if(variable == ""){
@@ -95,7 +100,13 @@ async function saveSettings(node){
             vite: vite,
             vitk: vitk,
             ldl: ldl,
-            hdl:hdl
+            hdl:hdl,
+            calcium:calcium,
+            iron:iron,
+            magnesium:magnesium,
+            potassium:potassium,
+            zinc:zinc,
+            sodium:sodium
         }
         const url = '/api/settings'
 	    const options = {

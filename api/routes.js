@@ -1,5 +1,4 @@
 
-/* routes.js */
 
 import { Router } from 'oak'
 
@@ -9,7 +8,6 @@ import { addSettings, getSettings, saveToBacklog, getBacklog } from '///home/cod
 
 const router = new Router()
 
-// the routes defined here
 router.get('/', async context => {
 	console.log('GET /')
 	context.response.headers.set('Content-Type', 'text/html')
@@ -133,7 +131,6 @@ router.get('/api/settings/:username', async context => {
 		const credentials = extractCredentials(token)
 		var username = await login(credentials)
 		var username = context.params.username
-		console.log(username)
 		const settings = await getSettings(username);
 		if(settings === false){
 			context.response.body = {status:'failed'}
