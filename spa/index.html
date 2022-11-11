@@ -35,6 +35,7 @@
 			<p>&nbsp;</p>
 		</footer>
 	<template id="home">
+
 		<div>
 			<p id ="searchLabel">Enter What You've Eaten</p>
 			<input placeholder="Enter Food" id = "searchbar" type="text"></input>
@@ -179,7 +180,54 @@
 		</form>
 	</template>
 	<template id="stats">
-		<p ></p>
+		<div id = "recipeDiv">
+			<p id ="searchLabel1">Recipes to find by food name</p>
+			<input placeholder="Enter Food" id = "searchbarRecipes" type="text"></input>
+			<button id = "searchButtonRecipes" > Search</button>
+		</div >
+    <div id = "recipeShowDiv" >
+      <h1 style="text-align:center;" id = "recipeTitle">Recipe Title</h1>
+      <div id ="firstGrid">
+        <div id="imgDiv"><img id = "recipeImg" style="width:200px;height:200px; border:1px solid black;"></img></div>
+        <div id = "ingredientDiv"></div>
+      </div>
+      <div id = "secondGrid">
+        <div id = "recipeCal">
+        <p class = "b" id="servings">5 </p>
+        <p class = "b" id = "servingLabel">servings</p>
+        <p class = "calDisplay" id="recipeCall" >500</p>
+        <p class = "calDisplay" id = "recipeCalLab" >kcal</p>
+        </div>
+        <div id = "vitaminMicroDiv">
+          <p>Protein</p><p id ="recipeProt" class="a">-</p>
+          <p>Carbs</p><p id="recipeCarb" class="a">-</p>
+          <p>Fats</p><p id="recipeFat" class="a">-</p>
+        </div>
+        <div id = "vitaminRecipeDiv">
+          <p >Vitamin A</p><p class="a" id = "recipeA" >-</p>
+          <p >Vitamin B1</p><p class="a" id = "recipeB1">-</p>
+          <p >Vitamin B2</p><p class="a" id = "recipeB2" >-</p>
+          <p >Vitamin B3</p><p class="a" id = "recipeB3" >-</p>
+          <p >Vitamin B6</p><p class="a" id = "recipeB6">-</p>
+          <p >Vitamin B12</p><p class="a" id = "recipeB12">-</p>
+          
+        </div>
+        <div id = "vitaminRecipeDiv1">
+          
+          <p >Vitamin C</p><p class="a" id = "recipeC">-</p>
+          <p >Vitamin D</p><p class="a" id = "recipeD">-</p>
+          <p >Vitamin E</p><p class="a" id = "recipeE">-</p>
+          <p >Vitamin K</p><p class="a" id = "recipeK">-</p>
+        </div>
+        <div id = "vitaminRecipeDiv2">
+          <p>Iron</p><p id = "recipeIron" class="a">-</p>
+          <p>Magnesium</p><p id = "recipeMag" class="a">-</p>
+          <p>Zinc</p><p id = "recipeZinc" class="a">-</p>
+          <p>Calcium</p ><p id = "recipeCalcium" class="a">-</p>
+          <p>Cholesterol</p><p id = "recipeChol" class="a">-</p>
+        </div>
+      </div>
+    </div>
 	</template>
 	<template id="backlog">
 		<div id="backlogWrapper">

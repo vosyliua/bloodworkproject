@@ -135,6 +135,97 @@ li:hover {
     border: 3px solid black;
     
 }
+#imgDiv{
+  text-align: center;
+  padding: 50px 0;
+}
+
+#recipeDiv{
+
+  text-align: center;
+}
+#searchbarRecipes{
+    width: 40%;
+    font-size: large;
+    padding:8px;
+    border: 3px solid black;
+    
+    
+}
+#servings{
+  font-weight:600;
+  font-size:30px;
+}
+#recipeShowDiv{
+  margin-top:20px;
+  margin-left: 20%;
+  width: 60%;
+  box-shadow: 0 0.3125rem 1rem -0.1875rem rgb(0 0 0 / 20%);
+  border-radius: 0.75rem;
+  padding: 10px;
+  
+
+}
+#firstGrid{
+  display: grid;
+  grid-template-columns: 1fr 2.5fr;
+  grid-template-rows: 1fr;
+  border-bottom: 1px solid rgb(61, 56, 56);
+  padding: 10px;
+}
+#ingredientDiv{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+}
+.a{
+  margin-left: 15px;
+  font-weight: 900;
+  font-size:15px;
+}
+
+#recipeCall{
+  font-weight: 900;
+  font-size: 50px;
+}
+#recipeCal{
+  text-align: center;
+
+}
+.calDisplay{
+  display: inline;
+}
+
+#secondGrid{
+  display: grid;
+  grid-template-columns: 1.5fr repeat(4, 1fr);
+  grid-template-rows: 1fr;
+}
+
+#vitaminRecipeDiv{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+}
+#vitaminRecipeDiv1{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  height:50%;
+}
+#vitaminRecipeDiv2{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  height:50%;
+}
+#vitaminMicroDiv{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  height:50%;
+}
+
 
 #searchMeasure{
     position:absolute;
@@ -183,6 +274,25 @@ li:hover {
     left: 62%;
     bottom:10%;
 
+}
+#searchButtonRecipes{
+    font-family: 'Rubik', sans-serif;
+  background: #CCD1D9;
+  padding: 10px 30px;
+  box-shadow: 0px 0px 12px -2px rgba(0,0,0,0.5);
+  line-height: 1.25;
+  background: #FC6E51;
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  transition: background-color .6s ease;
+  overflow: hidden;
+}
+
+#searchButtonRecipes:hover{
+    background-color:#002ead;
 }
 #settingsButton {
 

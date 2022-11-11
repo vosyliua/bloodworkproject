@@ -18,7 +18,7 @@ export async function setup(node) {
 		await excersiseBar(node)
 		document.querySelector('header p').innerText = 'Welcome ' + localStorage.getItem('username') + "!"
 		document.querySelector('header p').setAttribute('id', 'settingsHeader')
-		customiseNavbar(['settings', 'logout', 'vitamins','backlog'])
+		customiseNavbar(['settings', 'logout', 'vitamins','backlog','stats'])
 		const token = localStorage.getItem('authorization')
 
 		console.log(token)
@@ -34,8 +34,6 @@ async function searchFood(event){
 	if(remove !=null ){
 		remove.remove()
 	}
-	
-
 	var node = event.currentTarget.myparam
 	const value = document.getElementById('searchbar').value 
 	const measurment = document.getElementById('searchMeasure').value / 100
