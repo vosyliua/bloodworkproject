@@ -106,7 +106,7 @@ async function setPage (node){
     var amountArray = []
     var measurments = [" µg/dL"," nmol/l "," µg/dL"," ug/ml","ng/ml"," ng/ml"," mg/dl"," ng/ml"," µg/mL"," ng/ml"," mg/dl"," mg/dl"," mg/dl"," mcg/dl"," mEq/l"," µmol/L"," nmol/l"," mg/dL"]
     var wrapper = document.createElement('div')
-    var recommended = ["15-60","74-222","4-24","0.5-8.45","5 - 25","205-678","0.6-2", "20-40","5.5-17","0.2-3.2","100-129","40", "8.5-10.2","60-170","135-145","10.1–20.2"," 3.6-5.2","1.7-2.2"]
+    var recommended = ["15-60","74-222","4-24","0.5-8.45","5 - 25","205-678","0.4-2", "20-40","5.5-17","0.2-3.2","< 93","> 40", "8.5-10.2","60-170","135-145","10.1–20.2"," > 3.6","> 1.7"]
     wrapper.setAttribute('id', 'wrapper')
     var results = []
     var index = 0
@@ -130,63 +130,58 @@ async function setPage (node){
     }else{
         results.push("V")
     }
-    if(vitArray[4] <= 22.7  || vitArray[4]>= 429.2){
+    if(vitArray[4] <= 5  || vitArray[4]>= 25){
         results.push("X")
     }else{
         results.push("V")
     }
-    if(vitArray[4] <= 5  || vitArray[5]>= 25){
+    if(vitArray[5] <= 205  || vitArray[5]>= 678){
         results.push("X")
     }else{
         results.push("V")
     }
-    if(vitArray[5] <= 205  || vitArray[6]>= 678){
+    if(vitArray[6] <= 205  || vitArray[6]>= 678){
         results.push("X")
     }else{
         results.push("V")
     }
-    if(vitArray[6] <= 0.6  || vitArray[7]>= 2){
+    if(vitArray[7] <= 20  || vitArray[7]>= 40){
         results.push("X")
     }else{
         results.push("V")
     }
-    if(vitArray[7] <= 20  || vitArray[8]>= 40){
+    if(vitArray[8] <= 5.5  || vitArray[8]>= 17){
         results.push("X")
     }else{
         results.push("V")
     }
-    if(vitArray[8] <= 5.5  || vitArray[9]>= 17){
+    if(vitArray[9] <= 0.2  || vitArray[9]>= 3.2){
         results.push("X")
     }else{
         results.push("V")
     }
-    if(vitArray[9] <= 0.2  || vitArray[10]>= 3.2){
+    if(vitArray[10]>= 93){
         results.push("X")
     }else{
         results.push("V")
     }
-    if(vitArray[10] <= 100  || vitArray[11]>= 129){
+    if(vitArray[11] <= 40){
         results.push("X")
     }else{
         results.push("V")
-    }
-    if(vitArray[11] <= 400){
-        results.push("X")
-    }else{
-        results.push("V")
-    }if(vitArray[12] <= 8.5  || vitArray[13]>= 10.2){
+    }if(vitArray[12] <= 8.5  || vitArray[12]>= 10.2){
       results.push("X")
     }else{
       results.push("V")
-    }if(vitArray[13] <= 60  || vitArray[14]>= 170){
+    }if(vitArray[13] <= 60  || vitArray[13]>= 170){
       results.push("X")
     }else{
       results.push("V")
-    }if(vitArray[14] <= 135  || vitArray[15]>= 145){
+    }if(vitArray[14] <= 135  || vitArray[14]>= 145){
       results.push("X")
     }else{
       results.push("V")
-    }if(vitArray[15] <= 10.1  || vitArray[16]>= 20.2){
+    }if(vitArray[15] <= 10.1  || vitArray[15]>= 20.2){
       results.push("X")
     }else{
       results.push("V")
