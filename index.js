@@ -1,7 +1,7 @@
 
 import app from './api/middleware.js'
 
-const defaultPort = 8080
+const defaultPort = process.env.PORT || 8080
 const envPort = Deno.env.get('PORT')
 const port = envPort ? Number(envPort) : defaultPort
 
