@@ -106,7 +106,7 @@ async function setPage (node){
     var amountArray = []
     var measurments = [" µg/dL"," nmol/l "," µg/dL"," ug/ml","ng/ml"," ng/ml"," mg/dl"," ng/ml"," µg/mL"," ng/ml"," mg/dl"," mg/dl"," mg/dl"," mcg/dl"," mEq/l"," µmol/L"," nmol/l"," mg/dL"]
     var wrapper = document.createElement('div')
-    var recommended = ["15-60","74-222","4-24","0.5-8.45","5 - 25","205-678","0.4-2", "20-40","5.5-17","0.2-3.2","< 93","> 40", "8.5-10.2","60-170","135-145","10.1–20.2"," > 3.6","> 1.7"]
+    var recommended = ["15-60"," > 74","> 4 ","  > 0.5"," > 5 "," > 205 ","> 0.4", "20-40","5.5-17","0.2-3.2","< 93","> 40", "8.5-10.2","60-170","135-145","10.1–20.2"," > 3.6","> 1.7"]
     wrapper.setAttribute('id', 'wrapper')
     var results = []
     var index = 0
@@ -115,32 +115,32 @@ async function setPage (node){
     }else{
         results.push("V")
     }
-    if(vitArray[1] <= 74  || vitArray[1]>= 222){
+    if(vitArray[1] <= 74 ){
         results.push("X")
     }else{
         results.push("V")
     }
-    if(vitArray[2] <= 4  || vitArray[2]>= 24){
+    if(vitArray[2] <= 4 ){
         results.push("X")
     }else{
         results.push("V")
     }
-    if(vitArray[3] <= 0.5  || vitArray[3]>= 8.45){
+    if(vitArray[3] <= 0.5 ){
         results.push("X")
     }else{
         results.push("V")
     }
-    if(vitArray[4] <= 5  || vitArray[4]>= 25){
+    if(vitArray[4] <= 5 ){
         results.push("X")
     }else{
         results.push("V")
     }
-    if(vitArray[5] <= 205  || vitArray[5]>= 678){
+    if(vitArray[5] <= 205 ){
         results.push("X")
     }else{
         results.push("V")
     }
-    if(vitArray[6] <= 205  || vitArray[6]>= 678){
+    if(vitArray[6] <= 0.4 ){
         results.push("X")
     }else{
         results.push("V")
