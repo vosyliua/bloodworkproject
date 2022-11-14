@@ -27,7 +27,7 @@ export async function setup(node) {
 		document.querySelector('header p').innerText = 'OVERWIEW OF YOUR BLOOD RESULTS'
         document.querySelector('header p').setAttribute('id', 'settingsHeader')
 		customiseNavbar(['home', 'settings','vitamins','logout'])
-        await translator(node)
+        await getRecipe(node)
         var list = document.getElementsByClassName('link')
         console.log(list)
 	} catch(err) {
@@ -35,21 +35,6 @@ export async function setup(node) {
 	}
 }
 
-async function translator(node){
-  const res = await fetch("https://libretranslate.com/translate", {
-	method: "POST",
-	body: JSON.stringify({
-		q: "",
-		source: "en",
-		target: "es",
-		format: "text",
-		api_key: ""
-	}),
-	headers: { "Content-Type": "application/json" }
-});
-
-console.log(await res.json());
-}
 
 async function getRecipe(node){
     
