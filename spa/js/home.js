@@ -14,6 +14,7 @@ export async function setup(node) {
 			return;
 		}
 		await getDailyCal(node)
+		console.log("test")
 		await searchBar(node)
 		await excersiseBar(node)
 		document.querySelector('header p').innerText = 'Welcome ' + localStorage.getItem('username') + "!"
