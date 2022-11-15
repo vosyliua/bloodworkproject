@@ -3,8 +3,8 @@
 import { Router } from 'oak'
 
 import { extractCredentials, dataURLtoFile } from 'util'
-import { login, register } from '///home/codio/workspace/api/modules/accounts.js'
-import { addSettings, getSettings, saveToBacklog, getBacklog } from '///home/codio/workspace/api/modules/settings.js'
+import { login, register } from './modules/accounts.js'
+import { addSettings, getSettings, saveToBacklog, getBacklog } from './modules/settings.js'
 
 const router = new Router()
 
