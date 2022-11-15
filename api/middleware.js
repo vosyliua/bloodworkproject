@@ -4,7 +4,6 @@ import { Application, send, Status } from 'https://deno.land/x/oak@v10.5.1/mod.t
 import { extractCredentials, fileExists, getEtag } from './modules/util.js'
 import { login } from './modules/accounts.js'
 import { contentType } from 'https://deno.land/x/media_types@v3.0.2/mod.ts'
-import * from "https://deno.land/std/hash/mod.ts"
 
 import router from './routes.js'
 

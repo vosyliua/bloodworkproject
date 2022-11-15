@@ -1,5 +1,4 @@
 import { db } from './db.js'
-import * from "https://deno.land/std/hash/mod.ts"
 
 export async function addSettings(data) {
 	let sql = `SELECT id FROM accounts WHERE user = "${data.username}"`
