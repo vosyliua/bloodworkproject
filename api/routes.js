@@ -1,8 +1,8 @@
 
 
-import { Router } from 'oak'
+import { Router } from 'https://deno.land/x/oak@v10.5.1/mod.ts'
 
-import { extractCredentials, dataURLtoFile } from 'util'
+import { extractCredentials, dataURLtoFile } from './modules/util.js'
 import { login, register } from './modules/accounts.js'
 import { addSettings, getSettings, saveToBacklog, getBacklog } from './modules/settings.js'
 

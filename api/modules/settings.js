@@ -1,4 +1,4 @@
-import { db } from 'db'
+import { db } from './api/modules/db.js'
 
 export async function addSettings(data) {
 	let sql = `SELECT id FROM accounts WHERE user = "${data.username}"`
