@@ -71,48 +71,53 @@ async function getRecipe(node){
             })
             var data = await response.json()
             var randomRecipe = Math.floor(Math.random() * 10)
-            console.log(response.count)
+            console.log(data)
             if(response.count == 0){
                 return;
             }else{
                 document.getElementById('recipeShowDiv').hidden = false
             }
             var servingData = data.hits[randomRecipe].recipe.yield
-
-            var objectRecipe = {
-                name: data.hits[randomRecipe].recipe.label,
-                image: data.hits[randomRecipe].recipe.image,
-                calories: Math.round(data.hits[randomRecipe].recipe.calories / servingData),
-                protein: Math.round(data.hits[randomRecipe].recipe.digest[2].total / servingData),
-                fats:Math.round(data.hits[randomRecipe].recipe.digest[0].total / servingData),
-                carbs: Math.round(data.hits[randomRecipe].recipe.digest[1].total / servingData),
-                servings: data.hits[randomRecipe].recipe.yield,
-                ingredients: data.hits[randomRecipe].recipe.ingredientLines,
-                vita: Math.round(data.hits[randomRecipe].recipe.digest[11].total / servingData),
-                vitb1: Math.round(data.hits[randomRecipe].recipe.digest[13].total / servingData),
-                vitb2: Math.round(data.hits[randomRecipe].recipe.digest[14].total / servingData),
-                vitb3: Math.round(data.hits[randomRecipe].recipe.digest[15].total / servingData),
-                vitb6: Math.round(data.hits[randomRecipe].recipe.digest[16].total / servingData),
-                vitb12: Math.round(data.hits[randomRecipe].recipe.digest[20].total / servingData),
-                vitc: Math.round(data.hits[randomRecipe].recipe.digest[12].total / servingData),
-                vitd: Math.round(data.hits[randomRecipe].recipe.digest[21].total / servingData),
-                vite: Math.round(data.hits[randomRecipe].recipe.digest[22].total / servingData),
-                vitk: Math.round(data.hits[randomRecipe].recipe.digest[23].total / servingData),
-                calcium: Math.round(data.hits[randomRecipe].recipe.digest[5].total / servingData),
-                iron: Math.round(data.hits[randomRecipe].recipe.digest[8].total / servingData),
-                magnesium: Math.round(data.hits[randomRecipe].recipe.digest[6].total / servingData),
-                zinc: Math.round(data.hits[randomRecipe].recipe.digest[9].total / servingData),
-                cholesterol:Math.round(data.hits[randomRecipe].recipe.totalNutrients.CHOLE.quantity / servingData)
+            var recipeArray = []
+            data.hits.forEach(recipe=>{
+            var lowest = {
+                name: recipe.recipe.label,
+                image: recipe.recipe.image,
+                calories: Math.round(recipe.recipe.calories / servingData),
+                protein: Math.round(recipe.recipe.digest[2].total / servingData),
+                fats:Math.round(recipe.recipe.digest[0].total / servingData),
+                carbs: Math.round(recipe.recipe.digest[1].total / servingData),
+                servings: recipe.recipe.yield,
+                ingredients: recipe.recipe.ingredientLines,
+                vita: Math.round(recipe.recipe.digest[11].total / servingData),
+                vitb1: Math.round(recipe.recipe.digest[13].total / servingData),
+                vitb2: Math.round(recipe.recipe.digest[14].total / servingData),
+                vitb3: Math.round(recipe.recipe.digest[15].total / servingData),
+                vitb6: Math.round(recipe.recipe.digest[16].total / servingData),
+                vitb12: Math.round(recipe.recipe.digest[20].total / servingData),
+                vitc: Math.round(recipe.recipe.digest[12].total / servingData),
+                vitd: Math.round(recipe.recipe.digest[21].total / servingData),
+                vite: Math.round(recipe.recipe.digest[22].total / servingData),
+                vitk: Math.round(recipe.recipe.digest[23].total / servingData),
+                calcium: Math.round(recipe.recipe.digest[5].total / servingData),
+                iron: Math.round(recipe.recipe.digest[8].total / servingData),
+                magnesium: Math.round(recipe.recipe.digest[6].total / servingData),
+                zinc: Math.round(recipe.recipe.digest[9].total / servingData),
+                cholesterol:Math.round(recipe.recipe.totalNutrients.CHOLE.quantity / servingData)
             }
+            recipeArray.push(lowest)    
+            })
+            const objectRecipe = recipeArray.reduce((previous, current) => {
+                return current.cholesterol < previous.cholesterol ? current : previous;
+            });
             
-            data.hits[randomRecipe].recipe.ingredientLines.length
-            if(data.hits[randomRecipe].recipe.ingredientLines.length <= 7){
+            if(objectRecipe.ingredients.length <= 7){
                 document.getElementById('ingredientDiv').style.gridTemplateColumns = "1fr"
                 document.getElementById('ingredientDiv').style.height = "20%"
             }else{
                 document.getElementById('ingredientDiv').style.gridTemplateColumns = "repeat(2,1fr)"
             }
-            data.hits[randomRecipe].recipe.ingredientLines.forEach(ingredient=>{
+            objectRecipe.ingredients.forEach(ingredient=>{
                 var x = document.createElement('p')
                 x.innerText = ingredient
                 document.getElementById('ingredientDiv').appendChild(x)
