@@ -1,9 +1,9 @@
 
 
-import { Application, send, Status } from 'https://deno.land/x/oak@v10.5.1/mod.ts'
+import { Application, send, Status } from 'https://deno.land/x/oak@v11.1.0/mod.ts'
 import { extractCredentials, fileExists, getEtag } from './modules/util.js'
 import { login } from './modules/accounts.js'
-import { contentType } from 'https://deno.land/x/media_types@v3.0.2/mod.ts'
+import { contentType } from 'https://deno.land/x/media_types@v3.0.3/mod.ts'
 
 import router from './routes.js'
 
