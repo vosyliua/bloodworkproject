@@ -6,7 +6,9 @@ import { parse } from 'https://deno.land/std/flags/mod.ts'
 const {args} = Deno
 const defaultPort = 8080
 const argPort = parse(Deno.args).port
-const port = argPort ? Number(argPort) : defaultPort
+const port = argPort ? argPort : defaultPort
+console.log(defaultPort + " " + port + " " + argPort)
+console.log(typeof(defaultPort) + " " + typeof(port) + " " + typeof(argPort))
 
 app.addEventListener('listen', ({ port }) => console.log(`listening on port: ${port}`))
 
