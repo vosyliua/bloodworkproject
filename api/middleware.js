@@ -1,7 +1,7 @@
 
 
 import { Application, send, Status } from 'oak'
-import { extractCredentials, fileExists, getEtag } from 'util'
+import { extractCredentials, fileExists, getEtag } from './modules/util.js'
 import { login } from './modules/accounts.js'
 import { contentType } from 'mediaTypes'
 
