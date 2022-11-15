@@ -2,7 +2,7 @@
 /* util.js */
 
 import { etag } from 'oak'
-import { Base64 } from 'bb64'
+import { Base64 } from 'https://deno.land/x/bb64@1.1.0/mod.ts'
 // import { Md5 } from 'md5'
 
 export function extractCredentials(token) {

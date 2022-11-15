@@ -98,6 +98,9 @@ async function getBacklogs(node){
 	}
     const response = await fetch(`/api/backlog/${username}`, options)
     const data = await response.json()
+		if(data.msg == "not found"){
+			return
+		}
 	const template = document.querySelector("template#backlog")
 	const wrapperFor = document.createElement('div')
 	wrapperFor.setAttribute('id','mainBacklog')
