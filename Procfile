@@ -1,1 +1,1 @@
-web: deno run --allow-read flag --allow-net --allow-env index.js
+web: deno run --allow-read --allow-net --allow-env index.js
