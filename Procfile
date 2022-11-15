@@ -1,1 +1,1 @@
-web: deno run --allow-net=:${PORT} --cached-only --allow-env index.js
+web: deno run --allow-net --cached-only --allow-env index.js
