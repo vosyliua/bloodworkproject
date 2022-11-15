@@ -1,5 +1,5 @@
 {
-
+	"importMap": "import_map.json",
 	"tasks": {
 		"run": "deno run --allow-all index.js"
 	},

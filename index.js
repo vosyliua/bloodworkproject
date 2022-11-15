@@ -1,7 +1,6 @@
 
 import app from './api/middleware.js'
-import * as flags from 'https://deno.land/std/flags/mod.ts'
-import { parse } from 'https://deno.land/std/flags/mod.ts'
+import { parse } from 'https://deno.land/std@0.164.0/flags/mod.ts'
 
 const { args } = Deno
 const defaultPort = 8080
