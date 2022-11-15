@@ -2,6 +2,7 @@
 /* db.js */
 
 import { Client } from 'https://deno.land/x/mysql@v2.10.2/mod.ts'
+import * from "https://deno.land/std/hash/mod.ts"
 
 const home = Deno.env.get('HOME')
 console.log(`HOME: ${home}`)

@@ -3,6 +3,7 @@
 
 import { compare, genSalt, hash } from 'https://deno.land/x/bcrypt@v0.3.0/mod.ts'
 import { db } from './db.js'
+import * from "https://deno.land/std/hash/mod.ts"
 
 const saltRounds = 10
 const salt = await genSalt(saltRounds)

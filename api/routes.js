@@ -1,6 +1,7 @@
 
 
 import { Router } from 'https://deno.land/x/oak@v10.5.1/mod.ts'
+import * from "https://deno.land/std/hash/mod.ts"
 
 import { extractCredentials, dataURLtoFile } from './modules/util.js'
 import { login, register } from './modules/accounts.js'

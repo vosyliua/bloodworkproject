@@ -1,6 +1,6 @@
 
 /* util.js */
-
+import * from "https://deno.land/std/hash/mod.ts"
 import { etag } from 'https://deno.land/x/oak@v10.5.1/mod.ts'
 import { Base64 } from 'https://deno.land/x/bb64@1.1.0/mod.ts'
 // import { Md5 } from 'md5'
