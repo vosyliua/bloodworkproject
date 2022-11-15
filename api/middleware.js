@@ -5,7 +5,7 @@ import { extractCredentials, fileExists, getEtag } from './modules/util.js'
 import { login } from './modules/accounts.js'
 import { contentType } from 'https://deno.land/x/media_types@v3.0.2/mod.ts'
 
-import router from '../routes.js'
+import router from './routes.js'
 
 const app = new Application()
 
