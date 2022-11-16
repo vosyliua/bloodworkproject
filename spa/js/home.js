@@ -113,6 +113,7 @@ async function saveToBacklog(){
 	var currentdate = new Date();
 	var datetime =   currentdate.getDate() + "/"+ (currentdate.getMonth()+1)  + "/"  + currentdate.getFullYear() 
 	var caloriesUser = parseInt(document.getElementById('personCalories').innerText) - parseInt(document.getElementById('calAddUp').innerText)
+	
 	console.log(typeof(caloriesUser))
 	const data = {
 		username: localStorage.getItem('username'),
@@ -130,7 +131,7 @@ async function saveToBacklog(){
 	}
 	const response = await fetch('/api/backlog',options)
 	const backfeed = await response.json()
-	console.log(backfeed)
+	document.getElementById('calAddUp').innerText = 0
 }
  
 async function excersiseBar(node){

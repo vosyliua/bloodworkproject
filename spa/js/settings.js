@@ -40,10 +40,6 @@ async function saveSettings(node){
     var weight = document.getElementById("weight").value
     var height = document.getElementById("height").value
     var vita = document.getElementById("vita").value
-    var vitb1 = document.getElementById("vitb1").value
-    var vitb2 = document.getElementById("vitb2").value
-    var vitb3 = document.getElementById("vitb3").value
-    var vitb5 = document.getElementById("vitb5").value
     var vitb6 = document.getElementById("vitb6").value
     var vitb12 = document.getElementById("vitb12").value
     var vitc = document.getElementById("vitb12").value
@@ -55,14 +51,12 @@ async function saveSettings(node){
     var calcium = document.getElementById("calcium").value
     var magnesium = document.getElementById("magnesium").value
     var zinc = document.getElementById("zinc").value
-    var potassium = document.getElementById("potassium").value
     var iron = document.getElementById("iron").value
-    var sodium = document.getElementById("sodium").value
     if(age<= 0 || age >= 120){
         alert("Please enter a valid age")
         return;
     }
-    variables.push(height,age,gender,weight,vita,vitb1,vitb2,vitb3,vitb5,vitb6,vitb12,vitc,vitd,vite,vitk,ldl,hdl,calcium, magnesium, zinc, potassium, iron, sodium)
+    variables.push(height,age,gender,weight,vita,vitb6,vitb12,vitc,vitd,vite,vitk,ldl,hdl,calcium, magnesium, zinc, iron)
     var check = true
     variables.forEach(variable =>{
         if(variable == ""){
@@ -89,10 +83,6 @@ async function saveSettings(node){
             date : datetime,
             gender : gender,
             vita: vita,
-            vitb1: vitb1,
-            vitb2: vitb2,
-            vitb3: vitb3,
-            vitb5: vitb5,
             vitb6: vitb6,
             vitb12: vitb12,
             vitc: vitc,
@@ -104,9 +94,7 @@ async function saveSettings(node){
             calcium:calcium,
             iron:iron,
             magnesium:magnesium,
-            potassium:potassium,
             zinc:zinc,
-            sodium:sodium
         }
         const url = '/api/settings'
 	    const options = {

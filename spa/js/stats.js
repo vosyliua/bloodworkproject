@@ -3,11 +3,11 @@ import { createToken, customiseNavbar, loadPage, showMessage } from '../util.js'
 
 export async function setup(node) {
     if (localStorage.getItem("settingsToken") !== null && localStorage.getItem('settingsToken') !="false") {
-			
 	}else{
 		loadPage('login')
 		return;
 	}
+    localStorage.setItem('recipeId',0)
     var remove3 = document.getElementById('dailyCalories')
     if(remove3 !=null ){
 		remove3.remove()
@@ -37,8 +37,21 @@ export async function setup(node) {
 
 
 async function getRecipe(node){
-    
-	node.getElementById('searchButtonRecipes').addEventListener('click', async function(){
+	node.getElementById('searchButtonRecipes').addEventListener('click', async function(){                          // check if ingredient is the same as previous search
+        var userSearch1 = document.getElementById('searchbarRecipes').value
+        if( localStorage.getItem('userSearch') !== " " && localStorage.getItem('userSearch') == userSearch1){
+            var x = parseInt(localStorage.getItem('recipeId'))
+            x += 1
+            console.log(x)
+            if(x >= 9){
+                x = 0
+            }
+            localStorage.setItem('recipeId', x)
+        }else{  
+            var userSearch1 = document.getElementById('searchbarRecipes').value
+            localStorage.setItem('userSearch', userSearch1)
+            localStorage.setItem('recipeId', 0)
+         }
         document.getElementById('recipeTitle').innerText = ""
         document.getElementById('servings').innerText = ""
         document.getElementById('recipeCall').innerText = ""
@@ -77,9 +90,10 @@ async function getRecipe(node){
             }else{
                 document.getElementById('recipeShowDiv').hidden = false
             }
-            var servingData = data.hits[randomRecipe].recipe.yield
+            
             var recipeArray = []
             data.hits.forEach(recipe=>{
+            var servingData = recipe.recipe.yield
             var lowest = {
                 name: recipe.recipe.label,
                 image: recipe.recipe.image,
@@ -107,10 +121,10 @@ async function getRecipe(node){
             }
             recipeArray.push(lowest)    
             })
-            const objectRecipe = recipeArray.reduce((previous, current) => {
-                return current.cholesterol < previous.cholesterol ? current : previous;
-            });
-            
+            var newArray = recipeArray.sort((a, b) => parseFloat(a.cholesterol) - parseFloat(b.cholesterol));   // retrieving next best recipe based on cholesterol levels
+            var index = parseInt(localStorage.getItem('recipeId'))
+            const objectRecipe = newArray[index]
+            console.log(objectRecipe)
             if(objectRecipe.ingredients.length <= 7){
                 document.getElementById('ingredientDiv').style.gridTemplateColumns = "1fr"
                 document.getElementById('ingredientDiv').style.height = "20%"
