@@ -14,15 +14,12 @@ export async function setup(node) {
 			return;
 		}
 		await getDailyCal(node)
-		console.log("test")
 		await searchBar(node)
 		await excersiseBar(node)
 		document.querySelector('header p').innerText = 'Welcome ' + localStorage.getItem('username') + "!"
 		document.querySelector('header p').setAttribute('id', 'settingsHeader')
 		customiseNavbar(['settings', 'logout', 'vitamins','backlog','stats'])
 		const token = localStorage.getItem('authorization')
-
-		console.log(token)
 		if(token === null) customiseNavbar(['home', 'login','register'])
 
 	} catch(err) {

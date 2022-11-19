@@ -25,8 +25,6 @@ export async function setup(node) {
 
 async function login() {
 	event.preventDefault()
-	console.log('form submitted')
-
 	const formData = new FormData(event.target)
 	const data = Object.fromEntries(formData.entries())
 	const token = 'Basic ' + btoa(`${data.user}:${data.pass}`)

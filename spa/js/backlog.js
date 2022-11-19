@@ -21,11 +21,7 @@ export async function setup(node){
 		remove1.remove()
 	}
 	try {
-        
-		console.log('LOGIN: setup')
-		console.log(node)
 		document.querySelector('header p').innerText = 'Backlog Page'
-        console.log()
         document.querySelector('header p').setAttribute('id', 'settingsHeader')
 		customiseNavbar(['home', 'settings','logout','vitamins'])
 		await setBmi(node)

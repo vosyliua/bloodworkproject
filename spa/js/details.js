@@ -22,10 +22,7 @@ export async function setup(node){
 	}
 	try {
         await vitaminInformation(node)
-		console.log('LOGIN: setup')
-		console.log(node)
 		document.querySelector('header p').innerText = 'Details Page'
-        console.log()
         document.querySelector('header p').setAttribute('id', 'settingsHeader')
 		customiseNavbar(['home', 'settings','logout','vitamins'])
 	} catch(err) {
