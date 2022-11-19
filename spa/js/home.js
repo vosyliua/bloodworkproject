@@ -46,21 +46,17 @@ async function searchFood(event){
 		alert('Please enter all required fields')
 		return
 	}
-	console.log("https://api.edamam.com/api/food-database/v2/parser/"+ value)
 	const response = await fetch(`https://api.edamam.com/api/food-database/v2/parser?app_id=0dc8dbf9&app_key=26d3a8f5d794b2698a1b8f8bf2c1802b&ingr=${value}&nutrition-type=cooking`, {
                 method: 'GET',
                 headers: { "Accept": "application/json" },
             })
             if (response.ok === true) {
-				const data = await response.json()
+				const data = await response.json()																														// data retrieval from edamam API based off user input
 				if(data.hints.length == 0){
-					console.log("empty")
 					showMessage("food not found")
 					return
 				}
-        console.log(data)
-				console.log(data.hints[0].food.nutrients)
-				const information = {
+				const information = {																																				//data scraping and calculation based off measurment amount in grams
 					name: data.hints[0].food.label,
 					calories: Math.ceil(data.hints[0].food.nutrients.ENERC_KCAL*measurment),
 					protein: Math.ceil(data.hints[0].food.nutrients.PROCNT*measurment),
@@ -135,7 +131,7 @@ async function saveToBacklog(){
 }
  
 async function excersiseBar(node){
-	const excersises = ["Walking","Swimming","Running","Weight Lifting", "Cycling"]
+	const excersises = ["Walking","Swimming","Running","Weight Lifting", "Cycling"]					//available excersise methods
 	const intensities = ["Low Intensity", "Medium Intensity", "Vigurous Intensity"]
 	const intensityDic = {
 		low: 1,
@@ -153,15 +149,14 @@ async function excersiseBar(node){
 			alert("Specify a duration")
 			return;
 		}
-		const running = 653
+		const running = 653																																			//estimated calorie burn for each over of activity
 		const swimming = 600
 		const walking = 350
 		const weights =  333
 		const cycling = 666
-		console.log(excersiseValue + " " + intensityValue + " " + duration)
 		if(excersiseValue == "Walking"){
 			if(intensityValue == "Low Intensity"){
-				var finalCals = (duration / 100) *  walking
+				var finalCals = (duration / 100) *  walking																				//calculation based off intenisty and duration
 			}
 			if(intensityValue == "Medium Intensity"){
 				var finalCals = (duration / 100) *  (walking * 1.2)
@@ -301,7 +296,7 @@ function loadFood(information){
 async function getDailyCal(node){
 	const username = localStorage.getItem('username')
 	const options = {
-		method: 'GET',
+		method: 'GET',																																										//catching user data
 		headers: {
 			'Authorization' : localStorage.getItem('authorization'),
 			'Content-Type': 'application/vnd.api+json'
@@ -310,11 +305,11 @@ async function getDailyCal(node){
 	const response = await fetch(`/api/settings/${username}`, options)
 	const userData = await response.json()
 	console.log(userData)
-	if(userData.data[0].gender == "male"){
+	if(userData.data[0].gender == "male"){																															
 		var age = parseInt(userData.data[0].age)
 		var weight = parseInt(userData.data[0].weight)
 		var height = parseInt(userData.data[0].height)
-		const maleCalories = Math.round(66.5 + (13.75 * weight)+(5.003 * height)-(4.676 * age))
+		const maleCalories = Math.round(66.5 + (13.75 * weight)+(5.003 * height)-(4.676 * age))						//BMI calculation based off biometrics
 		console.log(maleCalories)
 		var calLabel = document.createElement('h2')
 		var callabel1 = document.createElement('h2')

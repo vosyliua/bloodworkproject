@@ -47,7 +47,7 @@ async function vitaminInformation(node){
     const data = await response.json()
     const extracted = data.data[0]
     console.log(extracted)
-    const vitamins = ["vita","vitb1","vitb2","vitb3","vitb5","vitb6","vitb12","vitc","vitd","vite","vitk","ldl","hdl","calcium","iron","sodium","zinc","potassium","magnesium"]
+    const vitamins = ["vita","vitb6","vitb12","vitc","vitd","vite","vitk","ldl","hdl","calcium","iron","zinc","magnesium"]
     const vitToGet = localStorage.getItem('details')
     console.log(vitToGet)
     var vitamin = vitamins[vitToGet-1]
@@ -115,7 +115,7 @@ async function vitaminInformation(node){
 
 function aVitamin(vitaminGot,node){
     if(vitaminGot <= 15 ){
-      const vitamina = `Your Vitamin A blood levels are not in the recomended range of 15-60 Micrograms Per Decilitre, yours is ${vitaminGot} Micrograms Per Decilitre . Vitamin A deficencies can cause cirrhosis of the liver, pancreatic insufficiency celiac disease and more.`
+      const vitamina = `Your Vitamin A blood levels are not in the recomended range of 25-60 Micrograms Per Decilitre, yours is ${vitaminGot} Micrograms Per Decilitre . Vitamin A deficencies can cause cirrhosis of the liver, pancreatic insufficiency celiac disease and more.`
       const vitamina2 = "Vitamin A helps form and maintain healthy teeth, skeletal and soft tissue, mucus membranes, and skin. It is also known as retinol because it produces the pigments in the retina of the eye."
       const vitaminab = vitamina + '\n' + vitamina2
       const vitaminabp = document.createElement('p')
@@ -141,7 +141,7 @@ function aVitamin(vitaminGot,node){
 		  node.appendChild(vita1div)
     }
     if(vitaminGot >= 65){
-      const vitamina = `Your Vitamin A blood levels are not in the recomended range of 15-60 Micrograms Per Decilitre, yours is ${vitaminGot} Micrograms Per Decilitre. Consuming very large amounts of vitamin A all at once can cause drowsiness, irritability, headache, nausea, and vomiting within hours, sometimes followed by peeling of the skin. Pressure within the skull is increased, particularly in children, and vomiting occurs.`
+      const vitamina = `Your Vitamin A blood levels are not in the recomended range of 25-60 Micrograms Per Decilitre, yours is ${vitaminGot} Micrograms Per Decilitre. Consuming very large amounts of vitamin A all at once can cause drowsiness, irritability, headache, nausea, and vomiting within hours, sometimes followed by peeling of the skin. Pressure within the skull is increased, particularly in children, and vomiting occurs.`
       const vitamina2 = "\n Please refrain from eating foods that are high in vitamin A, some foods that are high in vitamin A are: \n 1. Leafy green vegetables (kale, spinach, broccoli), orange and yellow vegetables (carrots, sweet potatoes, pumpkin and other winter squash, summer squash) \n 2. Tomatoes \n 3. Red bell peppers \n 4. Cantaloupe, mango \n 5. Beef liver \n 6. Fish oils \n 7. Eggs \n 8. Milk \n"
       const vitaminab = vitamina + '\n' + vitamina2
       const vitaminabp = document.createElement('p')
@@ -281,7 +281,7 @@ function b5Vitamin(vitaminGot,node){
 
 function b6Vitamin(vitaminGot,node){
 		if(vitaminGot <= 5  || vitaminGot >= 25  ){
-			const vitaminb = `Your Vitamin B6 blood levels are not in the recomended range of 5 - 25 Nanograms Per Mililiter, yours is ${vitaminGot} Nanograms Per Mililiter. A severe Vitamin B6 deficiency can cause inflammation of the skin (dermatitis) and a red, greasy, scaly rash. `
+			const vitaminb = `Your Vitamin B6 blood levels are not in the recomended range of > 5 Nanograms Per Mililiter, yours is ${vitaminGot} Nanograms Per Mililiter. A severe Vitamin B6 deficiency can cause inflammation of the skin (dermatitis) and a red, greasy, scaly rash. `
 			const vitaminb2 = "Vitamin B-6 (pyridoxine) is important for normal brain development and for keeping the nervous system and immune system healthy."
 			const vitaminbb = vitaminb + '\n' + vitaminb2
 			const vitaminbbp = document.createElement('p')
@@ -289,7 +289,7 @@ function b6Vitamin(vitaminGot,node){
 			vitaminbbp.style.fontSize = "20px"
 			const vitaminbfoodp = document.createElement('p')
 			vitaminbfoodp.style.fontSize = "20px"
-			vitaminbfoodp.innerText ="Foods that are healthy and high in Vitamin B6 are: \n 1. Tuna  1 mg (High In LDL Cholesterol, which is bad for your health) / 100g , 2. Avocado 0.26 mg / 100g \n 3. Banana 0,4 mg / 100g \n 4. Chickpeas 0,5 mg / 100g \n 5. Sunflower Seeds 1,3 mg / 100g \n 6. Hazelnuts 0,6 mg / 100g \n 7. Spinach = 0,2 mg / 100g \n \n The daily recommended intake of Vitamin B6 is 1.5 mg."
+			vitaminbfoodp.innerText ="Foods that are healthy and high in Vitamin B6 are: \n 1. Tuna  1 mg / 100g (High In LDL Cholesterol, which is bad for your health) \n  2. Avocado 0.26 mg / 100g \n 3. Banana 0,4 mg / 100g \n 4. Chickpeas 0,5 mg / 100g \n 5. Sunflower Seeds 1,3 mg / 100g \n 6. Hazelnuts 0,6 mg / 100g \n 7. Spinach 0,2 mg / 100g \n \n The daily recommended intake of Vitamin B6 is 1.5 mg."
 			var space = document.createElement('p')
 			var space1 = document.createElement('p')
 			space.style = "padding:20px"
@@ -309,7 +309,7 @@ function b6Vitamin(vitaminGot,node){
 }
 function b12Vitamin(vitaminGot,node){
 		if(vitaminGot <= 205  || vitaminGot >= 678  ){
-			const vitaminb = `Your Vitamin B12 blood levels are not in the recomended range of 205-678 Nanograms Per Mililiter, yours is ${vitaminGot} Nanograms Per Mililiter. A severe Vitamin B12 deficiency can cause extreme tiredness, a lack of energy, pins and needles (paraesthesia), a sore and red tongue, mouth ulcers, muscle weakness, disturbed vision. `
+			const vitaminb = `Your Vitamin B12 blood levels are not in the recomended range of > 205 Nanograms Per Mililiter, yours is ${vitaminGot} Nanograms Per Mililiter. A severe Vitamin B12 deficiency can cause extreme tiredness, a lack of energy, pins and needles (paraesthesia), a sore and red tongue, mouth ulcers, muscle weakness, disturbed vision. `
 			const vitaminb2 = "Vitamin B-12 (cobalamin) plays an essential role in red blood cell formation, cell metabolism, nerve function and the production of DNA, the molecules inside cells that carry genetic information."
 			const vitaminbb = vitaminb + '\n' + vitaminb2
 			const vitaminbbp = document.createElement('p')
@@ -317,7 +317,7 @@ function b12Vitamin(vitaminGot,node){
 			vitaminbbp.style.fontSize = "20px"
 			const vitaminbfoodp = document.createElement('p')
 			vitaminbfoodp.style.fontSize = "20px"
-			vitaminbfoodp.innerText ="Foods that are healthy and high in Vitamin B12 are: \n 1. The best way of getting your daily recommended intake of Vitamin B12 is by supplementing!\n 2. Eggs  0.89 μg / 100g μg (High In LDL Cholesterol, which is bad for your health) \n 3. Chicken 0.31 μg / 100g (High In LDL Cholesterol, which is bad for your health) \n 4. Milk 0.53 μg / 100g (High In LDL Cholesterol, which is bad for your health) \n 5. Liver 18,7 µg / 100g (High In LDL Cholesterol, which is bad for your health) \n The daily recommended intake of Vitamin B12 is 2.4 µg."
+			vitaminbfoodp.innerText ="Foods that are healthy and high in Vitamin B12 are: \n 1. The best way of getting your daily recommended intake of Vitamin B12 is by supplementing!\n 2. Eggs  0.89 μg / 100g μg (High In LDL Cholesterol, which is bad for your health) \n 3. Chicken 0.31 μg / 100g (High In LDL Cholesterol, which is bad for your health) \n 4. Milk 0.53 μg / 100g (High In LDL Cholesterol, which is bad for your health) \n 5. Liver 18,7 µg / 100g (High In LDL Cholesterol, which is bad for your health) \n \n The daily recommended intake of Vitamin B12 is 2.4 µg."
 			var space = document.createElement('p')
 			var space1 = document.createElement('p')
 			space.style = "padding:20px"
@@ -337,7 +337,7 @@ function b12Vitamin(vitaminGot,node){
 }
 function cVitamin(vitaminGot,node){
 	if(vitaminGot <= 0.6  || vitaminGot >= 2  ){
-			const vitaminb = `Your Vitamin C blood levels are not in the recomended range of 0.6-2 Miligrams Per Decilitre, yours is ${vitaminGot} Miligrams Per Decilitre. A severe Vitamin C deficiency can cause a condition called scurvy, fatigue and weakness, low mood, pain in the muscles and joints, nosebleeds, easy bruising, headaches, swollen or bleeding gums, low mood.`
+			const vitaminb = `Your Vitamin C blood levels are not in the recomended range of > 0.8 Miligrams Per Decilitre, yours is ${vitaminGot} Miligrams Per Decilitre. A severe Vitamin C deficiency can cause a condition called scurvy, fatigue and weakness, low mood, pain in the muscles and joints, nosebleeds, easy bruising, headaches, swollen or bleeding gums, low mood.`
 			const vitaminb2 = "Vitamin C is an antioxidant that helps protect your cells against the effects of free radicals — molecules produced when your body breaks down food or is exposed to tobacco smoke and radiation from the sun, X-rays or other sources. Free radicals might play a role in heart disease, cancer and other diseases."
 			const vitaminbb = vitaminb + '\n' + vitaminb2
 			const vitaminbbp = document.createElement('p')
@@ -345,7 +345,7 @@ function cVitamin(vitaminGot,node){
 			vitaminbbp.style.fontSize = "20px"
 			const vitaminbfoodp = document.createElement('p')
 			vitaminbfoodp.style.fontSize = "20px"
-			vitaminbfoodp.innerText ="Foods that are healthy and high in Vitamin C are: \n 1. Red Peppers - 242.5 mg / 100g \n 2. Kale 120 mg / 100g \n 3. Orange 53.2 mg / 100g \n 4. Strawberries 58.8 mg / 100g \n 5. Brussel Sprouts 85mg / 100g \n 6. Kiwi 92.7 mg / 100g \n 7. Broccoli 89.2 mg / 100g \n\n The daily recommended intake of Vitamin C is 75 mg."
+			vitaminbfoodp.innerText ="Foods that are healthy and high in Vitamin C are: \n 1. Red Peppers - 242.5 mg / 100g \n 2. Kale 120 mg / 100g \n 3. Orange 53.2 mg / 100g \n 4. Strawberries 58.8 mg / 100g \n 5. Brussel Sprouts 85mg / 100g \n 6. Kiwi 92.7 mg / 100g \n 7. Broccoli 89.2 mg / 100g \n \n The daily recommended intake of Vitamin C is 75 mg."
 			var space = document.createElement('p')
 			var space1 = document.createElement('p')
 			space.style = "padding:20px"
@@ -408,7 +408,7 @@ function dVitamin(vitaminGot,node){
 
 function eVitamin(vitaminGot,node){
 	if(vitaminGot <= 5.5 ){
-			const vitaminb = `Your Vitamin E blood levels are not in the recomended range of 5.5 - 17 Micrograms Per Mililiter, yours is ${vitaminGot} Micrograms Per Mililiter. Vitamin E deficiency can lead to a loss of bone density, which can contribute to osteoporosis and fractures (broken bones).Vitamin E deficiency can cause nerve and muscle damage that results in loss of feeling in the arms and legs, loss of body movement control, muscle weakness, and vision problems. Another sign of deficiency is a weakened immune system.`
+			const vitaminb = `Your Vitamin E blood levels are not in the recomended range of 7.5 - 17 Micrograms Per Mililiter, yours is ${vitaminGot} Micrograms Per Mililiter. Vitamin E deficiency can lead to a loss of bone density, which can contribute to osteoporosis and fractures (broken bones).Vitamin E deficiency can cause nerve and muscle damage that results in loss of feeling in the arms and legs, loss of body movement control, muscle weakness, and vision problems. Another sign of deficiency is a weakened immune system.`
 			const vitaminb2 = "Vitamin E helps maintain healthy skin and eyes, and strengthen the body's natural defence against illness and infection (the immune system)."
 			const vitaminbb = vitaminb + '\n' + vitaminb2
 			const vitaminbbp = document.createElement('p')
@@ -433,7 +433,7 @@ function eVitamin(vitaminGot,node){
 			node.appendChild(vitbfooddiv)
 	}
   if(vitaminGot >= 17){
-    const vitamina = `Your Vitamin E blood levels are not in the recomended range of 5.5 - 17 Micrograms Per Mililiter, yours is ${vitaminGot} Micrograms Per Decilitre. Vitamin E toxicity is rare, but occasionally high doses cause a risk of bleeding, as well as muscle weakness, fatigue, nausea, and diarrhea. The greatest risk from vitamin E toxicity is bleeding. Diagnosis is based on a person's symptoms.`
+    const vitamina = `Your Vitamin E blood levels are not in the recomended range of 7.5 - 17 Micrograms Per Mililiter, yours is ${vitaminGot} Micrograms Per Decilitre. Vitamin E toxicity is rare, but occasionally high doses cause a risk of bleeding, as well as muscle weakness, fatigue, nausea, and diarrhea. The greatest risk from vitamin E toxicity is bleeding. Diagnosis is based on a person's symptoms.`
     const vitamina2 = "\n Please refrain from eating foods that are high in vitamin E, some foods that are high in vitamin E are: \n 1. Wheat germ oil \n 2. Sunflower, safflower, and soybean oil \n 3. Sunflower seeds \n 4. Almonds \n 5. Peanuts \n 6. Beet greens, collard greens, spinach \n 7. Pumpkin \n 8. Red bell peppers \n"
     const vitaminab = vitamina + '\n' + vitamina2
     const vitaminabp = document.createElement('p')
@@ -451,7 +451,7 @@ function eVitamin(vitaminGot,node){
 
 function kVitamin(vitaminGot,node){
 		if(vitaminGot <= 0.2 ){
-			const vitaminb = `Your Vitamin K blood levels are not in the recomended range of 0.2 - 3.2 Nanograms Per Mililiter, yours is ${vitaminGot} Nanograms Per Mililiter. The main symptom of Vitamin K deficiency is bleeding (hemorrhage)—into the skin (causing bruises), from the nose, from a wound, in the stomach, or in the intestine. Sometimes bleeding in the stomach causes vomiting with blood. Blood may be seen in the urine or stool, or stools may be tarry black.`
+			const vitaminb = `Your Vitamin K blood levels are not in the recomended range of 0.6 - 3.2 Nanograms Per Mililiter, yours is ${vitaminGot} Nanograms Per Mililiter. The main symptom of Vitamin K deficiency is bleeding (hemorrhage)—into the skin (causing bruises), from the nose, from a wound, in the stomach, or in the intestine. Sometimes bleeding in the stomach causes vomiting with blood. Blood may be seen in the urine or stool, or stools may be tarry black.`
 			const vitaminb2 = "Vitamin K helps to make various proteins that are needed for blood clotting and the building of bones. Prothrombin is a vitamin K-dependent protein directly involved with blood clotting. Osteocalcin is another protein that requires vitamin K to produce healthy bone tissue."
 			const vitaminbb = vitaminb + '\n' + vitaminb2
 			const vitaminbbp = document.createElement('p')
@@ -476,7 +476,7 @@ function kVitamin(vitaminGot,node){
 			node.appendChild(vitbfooddiv)
 	}
   if(vitaminGot >= 3.2){
-    const vitamina = `Your Vitamin K blood levels are not in the recomended range of 0.2 - 3.2 Nanograms Per Mililiter, yours is ${vitaminGot} Nanograms Per Mililiter.  When toxicity does occur, it manifests with signs of jaundice, hyperbilirubinemia, hemolytic anemia, and kernicterus in infants.`
+    const vitamina = `Your Vitamin K blood levels are not in the recomended range of 0.6 - 3.2 Nanograms Per Mililiter, yours is ${vitaminGot} Nanograms Per Mililiter.  When toxicity does occur, it manifests with signs of jaundice, hyperbilirubinemia, hemolytic anemia, and kernicterus in infants.`
     const vitamina2 = "\n Please refrain from eating foods that are high in vitamin K, some foods that are high in vitamin K are: \n 1. Green leafy vegetables including collard and turnip greens, kale, spinach, broccoli, Brussels sprouts, cabbage, lettuces. \n 2. Soybean and canola oil \n 3. Salad dressings made with soybean or canola oil \n 4. Fortified meal replacement shakes \n"
     const vitaminab = vitamina + '\n' + vitamina2
     const vitaminabp = document.createElement('p')
@@ -553,7 +553,7 @@ function hdlVitamin(vitaminGot,node){
 
 function ironVitamin(vitaminGot,node){
     if(vitaminGot <= 60 ){
-      const vitamina = `Your Iron blood levels are not in the recomended range of 60 to 170 Micrograms per deciliter, yours is ${vitaminGot} Micrograms Per Decilitre . Undiagnosed or untreated iron-deficiency anemia may cause serious complications such as fatigue, headaches, restless legs syndrome, heart problems, pregnancy complications, and developmental delays in children. Iron-deficiency anemia can also make other chronic conditions worse or cause their treatments to work poorly.`
+      const vitamina = `Your Iron blood levels are not in the recomended range of 20 to 170 Micrograms per deciliter, yours is ${vitaminGot} Micrograms Per Decilitre . Undiagnosed or untreated iron-deficiency anemia may cause serious complications such as fatigue, headaches, restless legs syndrome, heart problems, pregnancy complications, and developmental delays in children. Iron-deficiency anemia can also make other chronic conditions worse or cause their treatments to work poorly.`
       const vitamina2 = "Iron is a mineral that the body needs for growth and development. Your body uses iron to make hemoglobin, a protein in red blood cells that carries oxygen from the lungs to all parts of the body, and myoglobin, a protein that provides oxygen to muscles. Your body also needs iron to make some hormones."
       const vitaminab = vitamina + '\n' + vitamina2
       const vitaminabp = document.createElement('p')
@@ -579,7 +579,7 @@ function ironVitamin(vitaminGot,node){
 		  node.appendChild(vita1div)
     }
     if(vitaminGot >= 170){
-      const vitamina = `Your Iron blood levels are not in the recomended range of 60 to 170 Micrograms per deciliter, yours is ${vitaminGot} Micrograms per deciliter. Excessive iron can be damaging to the gastrointestinal system. Symptoms of iron toxicity include nausea, vomiting, diarrhea and stomach pain. Over time, iron can accumulate in the organs, and cause fatal damage to the liver or brain.`
+      const vitamina = `Your Iron blood levels are not in the recomended range of 20 to 170 Micrograms per deciliter, yours is ${vitaminGot} Micrograms per deciliter. Excessive iron can be damaging to the gastrointestinal system. Symptoms of iron toxicity include nausea, vomiting, diarrhea and stomach pain. Over time, iron can accumulate in the organs, and cause fatal damage to the liver or brain.`
       const vitamina2 = "\n Please refrain from eating foods that are high in Iron, some foods that are high in Iron are: \n 1. Liver \n 2. Red Meat \n 3. Beans, such as red kidney beans, edamame beans and chickpeas \n 4. Nuts \n 5. Dried fruit"
       const vitaminab = vitamina + '\n' + vitamina2
       const vitaminabp = document.createElement('p')
@@ -597,7 +597,7 @@ function ironVitamin(vitaminGot,node){
 
 function calVitamin(vitaminGot,node){
     if(vitaminGot <= 8.5 ){
-      const vitamina = `Your Calcium blood levels are not in the recomended range of 8.5-10.2 Milligrams per Decilitre, yours is ${vitaminGot} Milligrams per Decilitre . If calcium deficiency is very severe or acute there can be muscle spasm or cramping, tingling, or burning sensation around the mouth and fingers, facial spasms and tics, seizures, and tremors. The loss of calcium from bone is called osteopenia when it is mild and osteoporosis when it is severe.`
+      const vitamina = `Your Calcium blood levels are not in the recomended range of 9-10.2 Milligrams per Decilitre, yours is ${vitaminGot} Milligrams per Decilitre . If calcium deficiency is very severe or acute there can be muscle spasm or cramping, tingling, or burning sensation around the mouth and fingers, facial spasms and tics, seizures, and tremors. The loss of calcium from bone is called osteopenia when it is mild and osteoporosis when it is severe.`
       const vitamina2 = "Your body needs calcium to build and maintain strong bones. Your heart, muscles and nerves also need calcium to function properly. Some studies suggest that calcium, along with vitamin D, may have benefits beyond bone health: perhaps protecting against cancer, diabetes and high blood pressure."
       const vitaminab = vitamina + '\n' + vitamina2
       const vitaminabp = document.createElement('p')
@@ -623,7 +623,7 @@ function calVitamin(vitaminGot,node){
 		  node.appendChild(vita1div)
     }
     if(vitaminGot >= 10.2){
-      const vitamina = `Your Calcium blood levels are not in the recomended range of 8.5-10.2 Milligrams per Decilitre, yours is ${vitaminGot} Milligrams per Decilitre. Calcium overdose can impair the functioning of the kidneys, increase the pH of the blood, and can cause nausea and vomiting, confusion or changes in thinking or mentation, itching, and in extreme cases irregular heartbeat. Symptoms of a calcium carbonate overdose include: Abdominal pain. Bone pain. Coma.`
+      const vitamina = `Your Calcium blood levels are not in the recomended range of 9-10.2 Milligrams per Decilitre, yours is ${vitaminGot} Milligrams per Decilitre. Calcium overdose can impair the functioning of the kidneys, increase the pH of the blood, and can cause nausea and vomiting, confusion or changes in thinking or mentation, itching, and in extreme cases irregular heartbeat. Symptoms of a calcium carbonate overdose include: Abdominal pain. Bone pain. Coma.`
       const vitamina2 = "\n Please refrain from eating foods that are high in Calcium, some foods that are high in Calcium are: \n 1.  Milk \n 2. Cheese \n 3. Legumes \n 4. Nuts"
       const vitaminab = vitamina + '\n' + vitamina2
       const vitaminabp = document.createElement('p')
@@ -641,7 +641,7 @@ function calVitamin(vitaminGot,node){
 
 function zincVitamin(vitaminGot,node){
     if(vitaminGot <= 5 ){
-      const vitamina = `Your Zinc blood levels are not in the recomended range of 5 – 21.5 Micromoles per Litre, yours is ${vitaminGot} Micromoles per Litre. Zinc deficiency can result in skin changes that look like eczema at first. There may be cracks and a glazed appearance on the skin, often found around the mouth, nappy area and hands. The rash doesn't get better with moisturisers or steroid creams or lotions.`
+      const vitamina = `Your Zinc blood levels are not in the recomended range of 12 – 21.5 Micromoles per Litre, yours is ${vitaminGot} Micromoles per Litre. Zinc deficiency can result in skin changes that look like eczema at first. There may be cracks and a glazed appearance on the skin, often found around the mouth, nappy area and hands. The rash doesn't get better with moisturisers or steroid creams or lotions.`
       const vitamina2 = "Zinc, a nutrient found throughout your body, helps your immune system and metabolism function. Zinc is also important to wound healing and your sense of taste and smell. With a varied diet, your body usually gets enough zinc."
       const vitaminab = vitamina + '\n' + vitamina2
       const vitaminabp = document.createElement('p')
@@ -667,7 +667,7 @@ function zincVitamin(vitaminGot,node){
 		  node.appendChild(vita1div)
     }
     if(vitaminGot >= 21.5){
-      const vitamina = `Your Zinc blood levels are not in the recomended range of 5 – 21.5 Micromoles per Litre, yours is ${vitaminGot} Micromoles per Litre. However, manifestations of overt toxicity symptoms (nausea, vomiting, epigastric pain, lethargy, and fatigue) will occur with extremely high zinc intakes.`
+      const vitamina = `Your Zinc blood levels are not in the recomended range of 12 – 21.5 Micromoles per Litre, yours is ${vitaminGot} Micromoles per Litre. However, manifestations of overt toxicity symptoms (nausea, vomiting, epigastric pain, lethargy, and fatigue) will occur with extremely high zinc intakes.`
       const vitamina2 = "\n Eventhough higher Zinc levels aren't dangerous, you could lower your Zinc levels by not eating some of the foods listed here: \n 1. Meat \n 2. Shellfish \n 3. Dairy \n 4. Eggs "
       const vitaminab = vitamina + '\n' + vitamina2
       const vitaminabp = document.createElement('p')
@@ -685,7 +685,7 @@ function zincVitamin(vitaminGot,node){
 
 function magVitamin(vitaminGot,node){
     if(vitaminGot <= 15 ){
-      const vitamina = `Your Vitamin A blood levels are not in the recomended range of 1.7 to 2.2 Miligrams Per Decilitre, yours is ${vitaminGot} Miligrams Per Decilitre. Magnesium deficiency can lead to health problems including: high blood pressure and heart disease. diabetes. osteoporosis.`
+      const vitamina = `Your Magnesium blood levels are not in the recomended range of > 2 Miligrams Per Decilitre, yours is ${vitaminGot} Miligrams Per Decilitre. Magnesium deficiency can lead to health problems including: high blood pressure and heart disease. diabetes. osteoporosis.`
       const vitamina2 = "Magnesium is important for many processes in the body. It is needed for muscles and nerves to work properly, to keep blood sugar and blood pressure at the right level, and to make protein, bone, and DNA."
       const vitaminab = vitamina + '\n' + vitamina2
       const vitaminabp = document.createElement('p')
